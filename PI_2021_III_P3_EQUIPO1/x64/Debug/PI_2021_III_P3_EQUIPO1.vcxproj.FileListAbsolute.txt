@@ -1,0 +1,58 @@
+C:\Users\elvir\Desktop\Biblioteca-master\Biblioteca-master\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.AssemblyReference.cache
+C:\Users\elvir\Desktop\Biblioteca-master\Biblioteca-master\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmBiblioteca.resources
+C:\Users\elvir\Desktop\Biblioteca-master\Biblioteca-master\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmCliente.resources
+C:\Users\elvir\Desktop\Biblioteca-master\Biblioteca-master\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmLibro.resources
+C:\Users\elvir\Desktop\Biblioteca-master\Biblioteca-master\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaLibros.resources
+C:\Users\elvir\Desktop\Biblioteca-master\Biblioteca-master\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmPersona.resources
+C:\Users\elvir\Desktop\Biblioteca-master\Biblioteca-master\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmBiblioteca.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmCliente.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmLibro.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaLibros.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmPersona.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSalaComputo.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmComputadora.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmEstante.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmLibrosEstante.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSucursal.resources
+C:\Users\Usuario\source\repos\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmInicio.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.AssemblyReference.cache
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmBiblioteca.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmCliente.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmComputadora.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmEstante.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmInicio.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmLibro.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmLibrosEstante.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaLibros.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmPersona.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSalaComputo.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSucursal.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.GenerateResource.cache
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaCliente.resources
+C:\Users\elvir\Desktop\Proyecto 3\Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaPersona.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.AssemblyReference.cache
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmBiblioteca.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmCliente.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmComputadora.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmDaño.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmEmpleado.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmEstante.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmFactura.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmInicio.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmLibro.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmLibrosEstante.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaCliente.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaDaños.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaEmpleado.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaFactura.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaLibros.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaPersona.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaPrestamo.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmPersona.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmPrestamo.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSalaComputo.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSucursal.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.GenerateResource.cache
