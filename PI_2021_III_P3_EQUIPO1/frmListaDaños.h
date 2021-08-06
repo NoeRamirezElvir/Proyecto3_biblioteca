@@ -128,6 +128,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Controls->Add(this->dgvDaños);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmListaDaños";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Registro de Daños";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvDaños))->EndInit();
 			this->ResumeLayout(false);

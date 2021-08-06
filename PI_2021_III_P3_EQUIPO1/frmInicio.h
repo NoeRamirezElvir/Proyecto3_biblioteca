@@ -244,6 +244,9 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 		else
 		{
 			acceso = false;
+			txtUsuario->Focus();
+			txtUsuario->Text = "";
+			txtContraseña->Text = "";
 		}
 	}
 	if (acceso == true)
@@ -258,5 +261,6 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 		MessageBox::Show("Nombre de usuario o contraseña incorrectos", "Error en el inicio de sesion", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }
+
 };
 }

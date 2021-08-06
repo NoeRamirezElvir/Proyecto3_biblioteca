@@ -376,6 +376,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Controls->Add(this->lblTitulo);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmFactura";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Factura";
 			this->ResumeLayout(false);
 			this->PerformLayout();
