@@ -6,6 +6,7 @@
   PI2021IIIP3EQUIPO1.frmEstante.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmFactura.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmInicio.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmInventario.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmLibro.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmLibrosEstante.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmListaCliente.resources - Embedded, ContainedInManifestFile, 
@@ -15,9 +16,13 @@
   PI2021IIIP3EQUIPO1.frmListaLibros.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmListaPersona.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmListaPrestamo.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmListaProveedores.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmPersona.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmPrestamo.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmProveedores.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmRecibidos.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmSalaComputo.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmSalaLectura.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmSucursal.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly PI_2021_III_P3_EQUIPO1, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
@@ -95,5 +100,20 @@ Class PI2021IIIP3EQUIPO1.frmBiblioteca: AutoLayout, AnsiClass, Class, Public, Be
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmInicio: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmInventario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmListaProveedores: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmProveedores: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmRecibidos: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmSalaLectura: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

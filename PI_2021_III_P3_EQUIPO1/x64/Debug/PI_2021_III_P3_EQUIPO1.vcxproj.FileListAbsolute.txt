@@ -56,3 +56,8 @@ C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSalaComputo.resources
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSucursal.resources
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.GenerateResource.cache
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmInventario.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaProveedores.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmProveedores.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmRecibidos.resources
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSalaLectura.resources
