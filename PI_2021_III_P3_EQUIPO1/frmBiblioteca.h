@@ -66,6 +66,7 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Button^ btnProveedores;
 	private: System::Windows::Forms::Button^ btnInventario;
 	private: System::Windows::Forms::Button^ btnSalaLectura;
+	private: System::Windows::Forms::Label^ label1;
 
 
 
@@ -97,6 +98,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnProveedores = (gcnew System::Windows::Forms::Button());
 			this->btnInventario = (gcnew System::Windows::Forms::Button());
 			this->btnSalaLectura = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// btnPersona
@@ -360,6 +362,15 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnSalaLectura->UseVisualStyleBackColor = false;
 			this->btnSalaLectura->Click += gcnew System::EventHandler(this, &frmBiblioteca::btnSalaLectura_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Location = System::Drawing::Point(871, 37);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 13);
+			this->label1->TabIndex = 14;
+			// 
 			// frmBiblioteca
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -368,6 +379,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(989, 594);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnSalaLectura);
 			this->Controls->Add(this->btnInventario);
 			this->Controls->Add(this->btnProveedores);
@@ -387,6 +399,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Biblioteca";
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -447,7 +460,7 @@ private: System::Void btnSalaLectura_Click(System::Object^ sender, System::Event
 }
 private: System::Void btnInventario_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmRecibidos^ recibidos = gcnew frmRecibidos;
-	recibidos->Show()
+	recibidos->Show();
 }
 };
 }
