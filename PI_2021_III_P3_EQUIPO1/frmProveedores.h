@@ -333,7 +333,7 @@ namespace PI2021IIIP3EQUIPO1 {
 		}
 #pragma endregion
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmProveedores^ listaProveedores = gcnew frmProveedores;
+		frmListaProveedores^ listaProveedores = gcnew frmListaProveedores;
 		listaProveedores->Show();
 	}
 };

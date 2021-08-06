@@ -63,10 +63,16 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Button^ btnFactura;
 	private: System::Windows::Forms::Button^ btnEmpleado;
 	private: System::Windows::Forms::Button^ btnPrestamo;
-	private: System::Windows::Forms::Button^ btnProveedores;
-	private: System::Windows::Forms::Button^ btnInventario;
-	private: System::Windows::Forms::Button^ btnSalaLectura;
+
+
+
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ btnProveedores;
+	private: System::Windows::Forms::Button^ btnSalaLectura;
+	private: System::Windows::Forms::Button^ btnInventario;
+
+
+
 
 
 
@@ -95,10 +101,10 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnFactura = (gcnew System::Windows::Forms::Button());
 			this->btnEmpleado = (gcnew System::Windows::Forms::Button());
 			this->btnPrestamo = (gcnew System::Windows::Forms::Button());
-			this->btnProveedores = (gcnew System::Windows::Forms::Button());
-			this->btnInventario = (gcnew System::Windows::Forms::Button());
-			this->btnSalaLectura = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->btnProveedores = (gcnew System::Windows::Forms::Button());
+			this->btnSalaLectura = (gcnew System::Windows::Forms::Button());
+			this->btnInventario = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// btnPersona
@@ -307,6 +313,15 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnPrestamo->UseVisualStyleBackColor = false;
 			this->btnPrestamo->Click += gcnew System::EventHandler(this, &frmBiblioteca::btnPrestamo_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Location = System::Drawing::Point(871, 37);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 13);
+			this->label1->TabIndex = 14;
+			// 
 			// btnProveedores
 			// 
 			this->btnProveedores->BackColor = System::Drawing::Color::LightSalmon;
@@ -316,32 +331,14 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnProveedores->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnProveedores->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnProveedores.Image")));
-			this->btnProveedores->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btnProveedores->Location = System::Drawing::Point(508, 301);
+			this->btnProveedores->Location = System::Drawing::Point(511, 300);
 			this->btnProveedores->Name = L"btnProveedores";
-			this->btnProveedores->Size = System::Drawing::Size(164, 47);
-			this->btnProveedores->TabIndex = 11;
+			this->btnProveedores->Size = System::Drawing::Size(161, 47);
+			this->btnProveedores->TabIndex = 15;
 			this->btnProveedores->Text = L"Proveedores";
+			this->btnProveedores->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->btnProveedores->UseVisualStyleBackColor = false;
-			this->btnProveedores->Click += gcnew System::EventHandler(this, &frmBiblioteca::btnProveedores_Click);
-			// 
-			// btnInventario
-			// 
-			this->btnInventario->BackColor = System::Drawing::Color::LightSalmon;
-			this->btnInventario->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
-			this->btnInventario->FlatAppearance->BorderSize = 2;
-			this->btnInventario->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnInventario->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnInventario->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnInventario.Image")));
-			this->btnInventario->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btnInventario->Location = System::Drawing::Point(508, 408);
-			this->btnInventario->Name = L"btnInventario";
-			this->btnInventario->Size = System::Drawing::Size(164, 47);
-			this->btnInventario->TabIndex = 12;
-			this->btnInventario->Text = L"Inventario";
-			this->btnInventario->UseVisualStyleBackColor = false;
-			this->btnInventario->Click += gcnew System::EventHandler(this, &frmBiblioteca::btnInventario_Click);
+			this->btnProveedores->Click += gcnew System::EventHandler(this, &frmBiblioteca::button1_Click);
 			// 
 			// btnSalaLectura
 			// 
@@ -352,24 +349,32 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnSalaLectura->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnSalaLectura->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnSalaLectura.Image")));
-			this->btnSalaLectura->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btnSalaLectura->Location = System::Drawing::Point(508, 355);
+			this->btnSalaLectura->Location = System::Drawing::Point(512, 354);
 			this->btnSalaLectura->Name = L"btnSalaLectura";
-			this->btnSalaLectura->Size = System::Drawing::Size(164, 47);
-			this->btnSalaLectura->TabIndex = 13;
-			this->btnSalaLectura->Text = L"Sala de Lectura";
+			this->btnSalaLectura->Size = System::Drawing::Size(159, 46);
+			this->btnSalaLectura->TabIndex = 16;
+			this->btnSalaLectura->Text = L"Sala de lectura";
 			this->btnSalaLectura->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->btnSalaLectura->UseVisualStyleBackColor = false;
-			this->btnSalaLectura->Click += gcnew System::EventHandler(this, &frmBiblioteca::btnSalaLectura_Click);
+			this->btnSalaLectura->Click += gcnew System::EventHandler(this, &frmBiblioteca::button2_Click);
 			// 
-			// label1
+			// btnInventario
 			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Location = System::Drawing::Point(871, 37);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(0, 13);
-			this->label1->TabIndex = 14;
+			this->btnInventario->BackColor = System::Drawing::Color::LightSalmon;
+			this->btnInventario->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
+			this->btnInventario->FlatAppearance->BorderSize = 2;
+			this->btnInventario->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnInventario->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnInventario->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnInventario.Image")));
+			this->btnInventario->Location = System::Drawing::Point(511, 409);
+			this->btnInventario->Name = L"btnInventario";
+			this->btnInventario->Size = System::Drawing::Size(160, 46);
+			this->btnInventario->TabIndex = 17;
+			this->btnInventario->Text = L"Inventario";
+			this->btnInventario->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->btnInventario->UseVisualStyleBackColor = false;
+			this->btnInventario->Click += gcnew System::EventHandler(this, &frmBiblioteca::button3_Click);
 			// 
 			// frmBiblioteca
 			// 
@@ -379,10 +384,10 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(989, 594);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->btnSalaLectura);
 			this->Controls->Add(this->btnInventario);
+			this->Controls->Add(this->btnSalaLectura);
 			this->Controls->Add(this->btnProveedores);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnPrestamo);
 			this->Controls->Add(this->btnEmpleado);
 			this->Controls->Add(this->btnFactura);
@@ -451,14 +456,23 @@ private: System::Void btnFactura_Click(System::Object^ sender, System::EventArgs
 	formulario->Show();
 }
 private: System::Void btnProveedores_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmProveedores^ proveedores = gcnew frmProveedores;
-	proveedores-> Show();
+
 }
 private: System::Void btnSalaLectura_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+}
+private: System::Void btnInventario_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmProveedores^ proveedores = gcnew frmProveedores;
+	proveedores->Show();
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmSalaLectura^ ventana = gcnew frmSalaLectura;
 	ventana->Show();
 }
-private: System::Void btnInventario_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmRecibidos^ recibidos = gcnew frmRecibidos;
 	recibidos->Show();
 }
