@@ -21,9 +21,11 @@
   PI2021IIIP3EQUIPO1.frmPrestamo.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmProveedores.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmRecibidos.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmRegistroComputadoras.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmSalaComputo.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmSalaLectura.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmSucursal.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmVisitasSalaComputo.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly PI_2021_III_P3_EQUIPO1, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
 	hash=SHA1, flags=PublicKey
@@ -45,7 +47,7 @@ Class PI2021IIIP3EQUIPO1.frmListaCliente: AutoLayout, AnsiClass, Class, Public, 
 Class PI2021IIIP3EQUIPO1.frmCliente: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class PI2021IIIP3EQUIPO1.frmSalaComputo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class PI2021IIIP3EQUIPO1.frmRegistroComputadoras: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmComputadora: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -96,13 +98,10 @@ Class PI2021IIIP3EQUIPO1.frmLibro: AutoLayout, AnsiClass, Class, Public, BeforeF
 Class PI2021IIIP3EQUIPO1.frmSucursal: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class PI2021IIIP3EQUIPO1.frmBiblioteca: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class PI2021IIIP3EQUIPO1.frmVisitasSalaComputo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class PI2021IIIP3EQUIPO1.frmInicio: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class PI2021IIIP3EQUIPO1.frmInventario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class PI2021IIIP3EQUIPO1.frmSalaComputo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmListaProveedores: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -111,9 +110,18 @@ Class PI2021IIIP3EQUIPO1.frmListaProveedores: AutoLayout, AnsiClass, Class, Publ
 Class PI2021IIIP3EQUIPO1.frmProveedores: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmInventario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmRecibidos: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmSalaLectura: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmBiblioteca: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmInicio: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

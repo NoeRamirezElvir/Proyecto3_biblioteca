@@ -1,5 +1,5 @@
 #pragma once
-#include "frmSalaComputo.h"
+#include "frmRegistroComputadoras.h"
 namespace PI2021IIIP3EQUIPO1 {
 
 	using namespace System;
@@ -252,9 +252,9 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			this->btnAgregar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnAgregar->Location = System::Drawing::Point(229, 293);
+			this->btnAgregar->Location = System::Drawing::Point(214, 293);
 			this->btnAgregar->Name = L"btnAgregar";
-			this->btnAgregar->Size = System::Drawing::Size(93, 42);
+			this->btnAgregar->Size = System::Drawing::Size(98, 42);
 			this->btnAgregar->TabIndex = 16;
 			this->btnAgregar->Text = L"Agregar";
 			this->btnAgregar->UseVisualStyleBackColor = true;
@@ -272,11 +272,11 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			this->btnSala->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSala->Location = System::Drawing::Point(398, 293);
+			this->btnSala->Location = System::Drawing::Point(375, 293);
 			this->btnSala->Name = L"btnSala";
-			this->btnSala->Size = System::Drawing::Size(92, 42);
+			this->btnSala->Size = System::Drawing::Size(109, 42);
 			this->btnSala->TabIndex = 18;
-			this->btnSala->Text = L"Ir a Sala de Computo";
+			this->btnSala->Text = L"Mostrar Computadoras";
 			this->btnSala->UseVisualStyleBackColor = true;
 			this->btnSala->Click += gcnew System::EventHandler(this, &frmComputadora::btnSala_Click);
 			// 
@@ -317,7 +317,7 @@ namespace PI2021IIIP3EQUIPO1 {
 #pragma endregion
 	
 private: System::Void btnSala_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmSalaComputo^ formulario = gcnew frmSalaComputo;
+	frmRegistroComputadoras^ formulario = gcnew frmRegistroComputadoras;
 	formulario->Show();
 }
 };

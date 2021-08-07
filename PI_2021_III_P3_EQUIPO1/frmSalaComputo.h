@@ -1,4 +1,5 @@
 #pragma once
+#include "frmVisitasSalaComputo.h"
 
 namespace PI2021IIIP3EQUIPO1 {
 
@@ -43,7 +44,7 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ lblHoraInicial;
 	private: System::Windows::Forms::Label^ lblHoraFinal;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Label^ lblcosto;
+
 
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox3;
@@ -51,12 +52,13 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::TextBox^ textBox7;
-	private: System::Windows::Forms::TextBox^ textBox8;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::ComboBox^ cboId;
 
 	private: System::Windows::Forms::Label^ lblCliente;
 	private: System::Windows::Forms::ComboBox^ cboCliente;
+	private: System::Windows::Forms::Button^ button2;
 
 
 	private:
@@ -81,18 +83,17 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblHoraInicial = (gcnew System::Windows::Forms::Label());
 			this->lblHoraFinal = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->lblcosto = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->cboId = (gcnew System::Windows::Forms::ComboBox());
 			this->lblCliente = (gcnew System::Windows::Forms::Label());
 			this->cboCliente = (gcnew System::Windows::Forms::ComboBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -182,17 +183,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
 			// 
-			// lblcosto
-			// 
-			this->lblcosto->AutoSize = true;
-			this->lblcosto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblcosto->Location = System::Drawing::Point(102, 222);
-			this->lblcosto->Name = L"lblcosto";
-			this->lblcosto->Size = System::Drawing::Size(82, 15);
-			this->lblcosto->TabIndex = 8;
-			this->lblcosto->Text = L"Costo Hora:";
-			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(449, 39);
@@ -235,18 +225,13 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->textBox7->Size = System::Drawing::Size(109, 20);
 			this->textBox7->TabIndex = 15;
 			// 
-			// textBox8
-			// 
-			this->textBox8->Location = System::Drawing::Point(196, 222);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(109, 20);
-			this->textBox8->TabIndex = 16;
-			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(290, 297);
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(196, 299);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(105, 41);
+			this->button1->Size = System::Drawing::Size(117, 43);
 			this->button1->TabIndex = 17;
 			this->button1->Text = L"Registrar Visita";
 			this->button1->UseVisualStyleBackColor = true;
@@ -278,24 +263,35 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboCliente->Size = System::Drawing::Size(109, 21);
 			this->cboCliente->TabIndex = 20;
 			// 
+			// button2
+			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(403, 299);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(103, 43);
+			this->button2->TabIndex = 21;
+			this->button2->Text = L"Mostar Visitas";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmSalaComputo::button2_Click);
+			// 
 			// frmSalaComputo
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkCyan;
 			this->ClientSize = System::Drawing::Size(665, 412);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->cboCliente);
 			this->Controls->Add(this->lblCliente);
 			this->Controls->Add(this->cboId);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->lblcosto);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->lblHoraFinal);
 			this->Controls->Add(this->lblHoraInicial);
@@ -314,5 +310,10 @@ namespace PI2021IIIP3EQUIPO1 {
 
 		}
 #pragma endregion
-	};
+	
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmVisitasSalaComputo^ formulario = gcnew frmVisitasSalaComputo;
+	formulario->Show();
+}
+};
 }

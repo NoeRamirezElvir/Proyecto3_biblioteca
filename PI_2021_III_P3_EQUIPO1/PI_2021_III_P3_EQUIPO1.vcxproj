@@ -148,9 +148,11 @@
     <ClCompile Include="frmPrestamo.cpp" />
     <ClCompile Include="frmProveedores.cpp" />
     <ClCompile Include="frmRecibidos.cpp" />
+    <ClCompile Include="frmRegistroComputadoras.cpp" />
     <ClCompile Include="frmSalaComputo.cpp" />
     <ClCompile Include="frmSalaLectura.cpp" />
     <ClCompile Include="frmSucursal.cpp" />
+    <ClCompile Include="frmVisitasSalaComputo.cpp" />
     <ClCompile Include="Libro.cpp" />
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="Usuario.cpp" />
@@ -226,6 +228,9 @@
     <ClInclude Include="frmRecibidos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmRegistroComputadoras.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmSalaComputo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -233,6 +238,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmSucursal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmVisitasSalaComputo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Libro.h" />
@@ -303,6 +311,9 @@
     <EmbeddedResource Include="frmRecibidos.resx">
       <DependentUpon>frmRecibidos.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroComputadoras.resx">
+      <DependentUpon>frmRegistroComputadoras.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSalaComputo.resx">
       <DependentUpon>frmSalaComputo.h</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSucursal.resx">
       <DependentUpon>frmSucursal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisitasSalaComputo.resx">
+      <DependentUpon>frmVisitasSalaComputo.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
