@@ -1,5 +1,5 @@
 #pragma once
-#include "frmListaEmpleado.h";
+#include "frmListaEmpleado.h"
 namespace PI2021IIIP3EQUIPO1 {
 
 	using namespace System;

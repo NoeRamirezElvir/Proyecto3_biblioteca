@@ -34,7 +34,9 @@ namespace PI2021IIIP3EQUIPO1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dgvLibros;
+	public: System::Windows::Forms::DataGridView^ dgvLibros;
+	protected:
+
 	protected:
 
 
@@ -47,12 +49,19 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colIDlibro;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colNombreLibro;
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colEstante;
 	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colCategoriaLibro;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colEdicionLibro;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colVolumenLibro;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colNombreAutorLibro;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colEditorialLibro;
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -69,34 +78,55 @@ namespace PI2021IIIP3EQUIPO1 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmListaLibros::typeid));
 			this->dgvLibros = (gcnew System::Windows::Forms::DataGridView());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->colIDlibro = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colNombreLibro = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->colEstante = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
 			this->colCategoriaLibro = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
 			this->colEdicionLibro = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colVolumenLibro = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colNombreAutorLibro = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colEditorialLibro = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvLibros))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dgvLibros
 			// 
-			this->dgvLibros->BackgroundColor = System::Drawing::Color::Azure;
+			this->dgvLibros->BackgroundColor = System::Drawing::Color::DarkSlateGray;
 			this->dgvLibros->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvLibros->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+			this->dgvLibros->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->colIDlibro,
-					this->colNombreLibro, this->colEstante, this->colCategoriaLibro, this->colEdicionLibro, this->colVolumenLibro, this->colNombreAutorLibro,
-					this->colEditorialLibro
+					this->colNombreLibro, this->colCategoriaLibro, this->colEdicionLibro, this->colVolumenLibro, this->colNombreAutorLibro, this->colEditorialLibro
 			});
-			this->dgvLibros->GridColor = System::Drawing::Color::DarkSlateGray;
-			this->dgvLibros->Location = System::Drawing::Point(38, 178);
+			this->dgvLibros->GridColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->dgvLibros->Location = System::Drawing::Point(12, 157);
 			this->dgvLibros->Name = L"dgvLibros";
-			this->dgvLibros->Size = System::Drawing::Size(844, 387);
+			this->dgvLibros->Size = System::Drawing::Size(742, 408);
 			this->dgvLibros->TabIndex = 25;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->Location = System::Drawing::Point(66, 12);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(160, 147);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox2->TabIndex = 24;
+			this->pictureBox2->TabStop = false;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::DarkBlue;
+			this->label3->Location = System::Drawing::Point(232, 79);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(408, 40);
+			this->label3->TabIndex = 23;
+			this->label3->Text = L"Lista de libros registrados";
 			// 
 			// colIDlibro
 			// 
@@ -107,11 +137,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			this->colNombreLibro->HeaderText = L"Nombre";
 			this->colNombreLibro->Name = L"colNombreLibro";
-			// 
-			// colEstante
-			// 
-			this->colEstante->HeaderText = L"Estante";
-			this->colEstante->Name = L"colEstante";
 			// 
 			// colCategoriaLibro
 			// 
@@ -142,35 +167,12 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->colEditorialLibro->HeaderText = L"Editorial";
 			this->colEditorialLibro->Name = L"colEditorialLibro";
 			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(93, 12);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(160, 147);
-			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox2->TabIndex = 24;
-			this->pictureBox2->TabStop = false;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::DarkBlue;
-			this->label3->Location = System::Drawing::Point(271, 75);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(408, 40);
-			this->label3->TabIndex = 23;
-			this->label3->Text = L"Lista de libros registrados";
-			// 
 			// frmListaLibros
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::MediumSeaGreen;
-			this->ClientSize = System::Drawing::Size(917, 577);
+			this->ClientSize = System::Drawing::Size(768, 577);
 			this->Controls->Add(this->dgvLibros);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->label3);

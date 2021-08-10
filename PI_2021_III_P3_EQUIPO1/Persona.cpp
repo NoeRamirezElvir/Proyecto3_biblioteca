@@ -103,7 +103,7 @@ void Persona::establecerGenero(string gen) {
 	genero[longitud] = '\0';
 }
 string Persona::obtenerGenero()const {
-	return tipoPersona;
+	return genero;
 }
 void Persona::registrarPersona() {
 	string nombre, apellido, identificacion, categoria, genero, tipoPersona;
@@ -158,4 +158,7 @@ void Persona::imprimir()const {
 	cout << "Genero: " << obtenerGenero() << endl;
 	cout << "Telefono: " << obtenerTelefono() << endl;
 	cout << "Identificacion: " << obtenerIdentificacion() << endl;
+}
+string Persona::imprimirMessage()const {
+	return  obtenerPrimerNombre() + " " + obtenerApellidoPaterno();
 }

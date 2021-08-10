@@ -1,8 +1,15 @@
 #pragma once
 #include "frmListaLibros.h"
+#include "Libro.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
 
 namespace PI2021IIIP3EQUIPO1 {
-
+	using namespace msclr::interop; ////nuevos using namespace
+	using namespace std;////
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -69,6 +76,8 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::ComboBox^ cboEstanteLibro;
 	private: System::Windows::Forms::ComboBox^ cboSucursalLibro;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::TextBox^ txtVolumen;
 
 
 
@@ -124,6 +133,8 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->cboEstanteLibro = (gcnew System::Windows::Forms::ComboBox());
 			this->cboSucursalLibro = (gcnew System::Windows::Forms::ComboBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->txtVolumen = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -198,7 +209,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblPrecioLibro->AutoSize = true;
 			this->lblPrecioLibro->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblPrecioLibro->Location = System::Drawing::Point(84, 393);
+			this->lblPrecioLibro->Location = System::Drawing::Point(84, 406);
 			this->lblPrecioLibro->Name = L"lblPrecioLibro";
 			this->lblPrecioLibro->Size = System::Drawing::Size(104, 15);
 			this->lblPrecioLibro->TabIndex = 7;
@@ -245,7 +256,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			// txtCostoLibro
 			// 
-			this->txtCostoLibro->Location = System::Drawing::Point(190, 393);
+			this->txtCostoLibro->Location = System::Drawing::Point(190, 406);
 			this->txtCostoLibro->Name = L"txtCostoLibro";
 			this->txtCostoLibro->Size = System::Drawing::Size(121, 20);
 			this->txtCostoLibro->TabIndex = 13;
@@ -287,6 +298,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnRegistrarLibro->Text = L"Registrar libro";
 			this->btnRegistrarLibro->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->btnRegistrarLibro->UseVisualStyleBackColor = false;
+			this->btnRegistrarLibro->Click += gcnew System::EventHandler(this, &frmLibro::btnRegistrarLibro_Click);
 			// 
 			// pictureBox1
 			// 
@@ -354,12 +366,32 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboSucursalLibro->Size = System::Drawing::Size(121, 21);
 			this->cboSucursalLibro->TabIndex = 24;
 			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(123, 466);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(71, 15);
+			this->label4->TabIndex = 25;
+			this->label4->Text = L"Volumen: ";
+			// 
+			// txtVolumen
+			// 
+			this->txtVolumen->Location = System::Drawing::Point(190, 465);
+			this->txtVolumen->Name = L"txtVolumen";
+			this->txtVolumen->Size = System::Drawing::Size(121, 20);
+			this->txtVolumen->TabIndex = 26;
+			// 
 			// frmLibro
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::SeaGreen;
-			this->ClientSize = System::Drawing::Size(849, 496);
+			this->ClientSize = System::Drawing::Size(849, 537);
+			this->Controls->Add(this->txtVolumen);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->cboSucursalLibro);
 			this->Controls->Add(this->cboEstanteLibro);
 			this->Controls->Add(this->label3);
@@ -387,6 +419,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmLibro";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Libro";
+			this->Load += gcnew System::EventHandler(this, &frmLibro::frmLibro_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -394,8 +427,90 @@ namespace PI2021IIIP3EQUIPO1 {
 		}
 #pragma endregion
 private: System::Void btnMostrarLibros_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmListaLibros^ formulario = gcnew frmListaLibros;
-	formulario->Show();
+	frmListaLibros^ listaLibros = gcnew frmListaLibros;
+	listaLibros->Show();
+	ifstream archivoLibrosEntrada("Libros.dat", ios::binary | ios::app | ios::in);
+	if (!archivoLibrosEntrada)
+	{
+		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	Libro leerLibro;
+	archivoLibrosEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
+	while (!archivoLibrosEntrada.eof())
+	{
+		System::String^ nombreL = marshal_as<System::String^>(leerLibro.obtenerNombreLibro());
+		System::String^ nombreA = marshal_as<System::String^>(leerLibro.obtenerNombreAutor());
+		System::String^ editorial = marshal_as<System::String^>(leerLibro.obtenerEditorial());
+		System::String^ categoria = marshal_as<System::String^>(leerLibro.obtenerCategoria());
+		std::string id = to_string(leerLibro.obtenerIDlibro());
+		std::string vol = to_string(leerLibro.obtenerNumeroVolumen());
+		std::string año1 = to_string(leerLibro.obtenerAñoEdicion());
+		std::string val = to_string(leerLibro.obtenerPrecio());
+		System::String^ IdL = marshal_as<System::String^>(id);
+		System::String^ volumen = marshal_as<System::String^>(vol);
+		System::String^ año = marshal_as<System::String^>(año1);
+		System::String^ valor = marshal_as<System::String^>(val);
+		listaLibros->dgvLibros->Rows->Add(IdL, nombreL, categoria, año, volumen, nombreA, editorial);
+		archivoLibrosEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
+	}
+
+}
+private: System::Void frmLibro_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoLibros("Libros.dat", ios::binary | ios::app | ios::out);
+	if (!archivoLibros)
+	{
+		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	txtAñoEdicionLibro->Text = "";
+	txtCostoLibro->Text = "";
+	txtNombreLibro->Text = "";
+	txtNombreAutorLibro->Text = "";
+	txtEditorialLibro->Text = "";
+	txtIDlibro->Text = "";
+	cboCategoriaLibro->Text = "";
+	cboEstanteLibro->Text = "";
+	cboSucursalLibro->Text = "";
+}
+private: System::Void btnRegistrarLibro_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoLibroSalida("Libros.dat", ios::binary | ios::app | ios::out);
+	if (!archivoLibroSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	System::String^ nomL = txtNombreLibro->Text;
+	System::String^ nomA = txtNombreAutorLibro->Text;
+	System::String^ edit = txtEditorialLibro->Text;
+	System::String^ cat = cboCategoriaLibro->SelectedItem->ToString();
+	//System::String^ est = cboEstanteLibro->SelectedItem->ToString();
+	//System::String^ suc = cboSucursalLibro->SelectedItem->ToString();
+	int IdLibro = Convert::ToInt32(txtIDlibro->Text);
+	int volumen = Convert::ToInt32(txtVolumen->Text);
+	int año = Convert::ToInt32(txtAñoEdicionLibro->Text);
+	double valor = Convert::ToDouble(txtCostoLibro->Text);
+	std::string nombreLibro = marshal_as<std::string>(nomL);
+	std::string nombreAutor = marshal_as<std::string>(nomA);
+	std::string editorial = marshal_as<std::string>(edit);
+	std::string categoria = marshal_as<std::string>(cat);
+	//std::string estante = marshal_as<std::string>(est);
+	//std::string sucursal = marshal_as<std::string>(suc);
+
+	Libro libro(IdLibro, año, volumen, valor, nombreLibro, nombreAutor, editorial, categoria);
+	archivoLibroSalida.write(reinterpret_cast<char*>(&libro), sizeof(Libro));
+	archivoLibroSalida.close();
+	//////
+	txtAñoEdicionLibro->Text = "";
+	txtCostoLibro->Text = "";
+	txtEditorialLibro->Text = "";
+	txtIDlibro->Text = "";
+	txtNombreAutorLibro->Text = "";
+	txtNombreLibro->Text = "";
+	txtVolumen->Text = "";
+	cboCategoriaLibro->Text = "";
+	cboEstanteLibro->Text = "";
+	cboSucursalLibro->Text = "";
 }
 };
 }

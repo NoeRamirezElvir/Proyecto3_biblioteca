@@ -8,6 +8,7 @@ class Persona
 public:
 	Persona();
 	Persona(std::string, std::string, std::string, std::string, std::string, int, int, int);
+	~Persona(){}
 	//nombre
 	void establecerPrimerNombre(std::string);
 	std::string obtenerPrimerNombre()const;
@@ -36,6 +37,7 @@ public:
 	void registrarPersona();
 	std::string seleccionarTipo() const;
 	virtual void imprimir() const;
+	std::string imprimirMessage()const;
 
 
 private:

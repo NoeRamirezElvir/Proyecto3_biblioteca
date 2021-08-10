@@ -1,8 +1,18 @@
 #pragma once
+#include <fstream>
 #include "frmListaPersona.h"
+#include "frmCliente.h"
+#include "Persona.h"
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
+
+
 
 namespace PI2021IIIP3EQUIPO1 {
-
+	using namespace msclr::interop; /// nuevos using namespace
+	using namespace std; ////
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -79,10 +89,12 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::ComboBox^ cboGeneroPersona;
 	private: System::Windows::Forms::Label^ lblCategoriaPersona;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtCategoriaPersona;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox6;
 	private: System::Windows::Forms::Label^ lblTipoPersona;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ cboTipoPersona;
+
 
 
 
@@ -130,10 +142,10 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->cboGeneroPersona = (gcnew System::Windows::Forms::ComboBox());
 			this->lblCategoriaPersona = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtCategoriaPersona = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->lblTipoPersona = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->cboTipoPersona = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -357,6 +369,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnRegistrarPersona->TabIndex = 26;
 			this->btnRegistrarPersona->Text = L"Registrar";
 			this->btnRegistrarPersona->UseVisualStyleBackColor = false;
+			this->btnRegistrarPersona->Click += gcnew System::EventHandler(this, &frmPersona::btnRegistrarPersona_Click);
 			// 
 			// btnMostrarPersona
 			// 
@@ -408,12 +421,12 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblCategoriaPersona->TabIndex = 30;
 			this->lblCategoriaPersona->Text = L"Categoria: ";
 			// 
-			// textBox1
+			// txtCategoriaPersona
 			// 
-			this->textBox1->Location = System::Drawing::Point(251, 451);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(121, 20);
-			this->textBox1->TabIndex = 31;
+			this->txtCategoriaPersona->Location = System::Drawing::Point(251, 451);
+			this->txtCategoriaPersona->Name = L"txtCategoriaPersona";
+			this->txtCategoriaPersona->Size = System::Drawing::Size(121, 20);
+			this->txtCategoriaPersona->TabIndex = 31;
 			// 
 			// pictureBox6
 			// 
@@ -435,15 +448,15 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblTipoPersona->TabIndex = 33;
 			this->lblTipoPersona->Text = L"Tipo: ";
 			// 
-			// comboBox1
+			// cboTipoPersona
 			// 
-			this->comboBox1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Cliente", L"Empleado" });
-			this->comboBox1->Location = System::Drawing::Point(482, 149);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 21);
-			this->comboBox1->TabIndex = 34;
+			this->cboTipoPersona->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->cboTipoPersona->FormattingEnabled = true;
+			this->cboTipoPersona->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Cliente", L"Empleado" });
+			this->cboTipoPersona->Location = System::Drawing::Point(482, 149);
+			this->cboTipoPersona->Name = L"cboTipoPersona";
+			this->cboTipoPersona->Size = System::Drawing::Size(121, 21);
+			this->cboTipoPersona->TabIndex = 34;
 			// 
 			// frmPersona
 			// 
@@ -451,10 +464,10 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkCyan;
 			this->ClientSize = System::Drawing::Size(683, 601);
-			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->cboTipoPersona);
 			this->Controls->Add(this->lblTipoPersona);
 			this->Controls->Add(this->pictureBox6);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtCategoriaPersona);
 			this->Controls->Add(this->lblCategoriaPersona);
 			this->Controls->Add(this->cboGeneroPersona);
 			this->Controls->Add(this->pictureBox5);
@@ -485,6 +498,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmPersona";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Persona";
+			this->Load += gcnew System::EventHandler(this, &frmPersona::frmPersona_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -502,6 +516,92 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Void btnMostrarPersona_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmListaPersona^ listaPersona = gcnew frmListaPersona;
 		listaPersona->Show();
+		ifstream archivoPersonaEntrada;
+		archivoPersonaEntrada.open("Personas.dat", ios::binary |ios::app | ios::in);
+		if (!archivoPersonaEntrada)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+		Persona leerPersona;
+		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+		while (!archivoPersonaEntrada.eof())
+		{
+			System::String^ nombre1 = marshal_as<System::String^>(leerPersona.obtenerPrimerNombre());
+			System::String^ apellido1 = marshal_as<System::String^>(leerPersona.obtenerApellidoPaterno());
+			System::String^ identificacion1 = marshal_as<System::String^>(leerPersona.obtenerIdentificacion());
+			System::String^ tipo1 = marshal_as<System::String^>(leerPersona.obtenerTipoPersona());
+			System::String^ genero1 = marshal_as<System::String^>(leerPersona.obtenerGenero());
+			std::string id = to_string(leerPersona.obtenerID());
+			std::string ed = to_string(leerPersona.obtenerEdad());
+			std::string tel = to_string(leerPersona.obtenerTelefono());
+			System::String^ ID1 = marshal_as<System::String^>(id);
+			System::String^ edad1 = marshal_as<System::String^>(ed);
+			System::String^ telefono1 = marshal_as<System::String^>(tel);
+			listaPersona->dgvListaPersona->Rows->Add(ID1, nombre1, apellido1, genero1, edad1, identificacion1, telefono1, tipo1);
+			archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+		}
 	}
+private: System::Void btnRegistrarPersona_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoPersonaSalida("Personas.dat", ios::binary | ios::app | ios::out);
+	if (!archivoPersonaSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	//variables String del sistema
+	System::String^ nombre = txtPrimerNombre->Text;
+	System::String^ apellido = txtApellidoPaterno->Text;
+	System::String^ genero = cboGeneroPersona->SelectedItem->ToString();
+	System::String^ identificacion = txtIdentificacion->Text;
+	System::String^ categoria = txtCategoriaPersona->Text;
+	System::String^ tipo = cboTipoPersona->Text->ToString();
+	int ID = Convert::ToInt32(txtIDPersona->Text);
+	int telefono = Convert::ToInt32(txtTelefonoPersona->Text);
+	int edad = Convert::ToInt16(txtEdad->Text);
+	//convertir los string
+	std::string nombreP = marshal_as<std::string>(nombre);
+	std::string apellidoP = marshal_as<std::string>(apellido);
+	std::string generoP = marshal_as<std::string>(genero);
+	std::string identificacionP = marshal_as<std::string>(identificacion);
+	std::string categoriaP = marshal_as<std::string>(categoria);
+	std::string tipoP = marshal_as<std::string>(tipo);
+	Persona persona(nombreP, apellidoP, identificacionP, tipoP, generoP, telefono, edad, ID);
+	//Guardar en archivo
+	//archivoPersonaSalida.seekp((ID - 1) * sizeof(Persona));
+	archivoPersonaSalida.write(reinterpret_cast<const char*>(&persona), sizeof(Persona));
+	archivoPersonaSalida.close();
+	////////////////////////////////////
+	txtPrimerNombre->Text = " ";
+	txtApellidoPaterno->Text = " ";
+	txtCategoriaPersona->Text = " ";
+	txtIdentificacion->Text = " ";
+	txtCategoriaPersona->Text = " ";
+	txtEdad->Text = " ";
+	txtIDPersona->Text = " ";
+	txtTelefonoPersona->Text = " ";
+	cboGeneroPersona->Text = " ";
+	cboTipoPersona->Text = " ";
+	////////////////////////////////////
+
+}
+private: System::Void frmPersona_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoPersona("Personas.dat", ios::binary |ios::app| ios::out);
+	if (!archivoPersona)
+	{
+		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	txtPrimerNombre->Text = "";
+	txtApellidoPaterno->Text = "";
+	txtCategoriaPersona->Text = "";
+	txtIdentificacion->Text = "";
+	txtCategoriaPersona->Text = "";
+	txtEdad->Text = "";
+	txtIDPersona->Text = "";
+	txtTelefonoPersona->Text = "";
+	cboGeneroPersona->Text = "";
+	cboTipoPersona->Text = "";
+}
 };
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "frmListaDaños.h";
+#include "frmListaDaños.h"
 #include "frmPrestamo.h"
 
 namespace PI2021IIIP3EQUIPO1 {

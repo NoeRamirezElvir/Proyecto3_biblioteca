@@ -1,8 +1,16 @@
 #pragma once
 #include "frmListaCliente.h"
+#include "Cliente.h"
+#include "Persona.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
 
 namespace PI2021IIIP3EQUIPO1 {
-
+	using namespace msclr::interop;
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -37,6 +45,9 @@ namespace PI2021IIIP3EQUIPO1 {
 		}
 	private: System::Windows::Forms::Label^ lblRegistroCliente;
 	private: System::Windows::Forms::ComboBox^ cboPersonas;
+
+	private:
+
 	private: System::Windows::Forms::Label^ lblSeleccionPersona;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
@@ -166,6 +177,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboPersonas->Name = L"cboPersonas";
 			this->cboPersonas->Size = System::Drawing::Size(121, 21);
 			this->cboPersonas->TabIndex = 1;
+			this->cboPersonas->SelectedIndexChanged += gcnew System::EventHandler(this, &frmCliente::cboPersonas_SelectedIndexChanged);
 			// 
 			// lblSeleccionPersona
 			// 
@@ -254,6 +266,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnRegistrarCliente->Text = L"Registrar Cliente";
 			this->btnRegistrarCliente->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->btnRegistrarCliente->UseVisualStyleBackColor = false;
+			this->btnRegistrarCliente->Click += gcnew System::EventHandler(this, &frmCliente::btnRegistrarCliente_Click);
 			// 
 			// btnMostrarCliente
 			// 
@@ -460,6 +473,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			// frmCliente
 			// 
+			this->AllowDrop = true;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Teal;
@@ -495,11 +509,12 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Controls->Add(this->lblSeleccionPersona);
 			this->Controls->Add(this->cboPersonas);
 			this->Controls->Add(this->lblRegistroCliente);
-			this->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmCliente";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Cliente";
+			this->Load += gcnew System::EventHandler(this, &frmCliente::frmCliente_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -516,6 +531,152 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Void btnMostrarCliente_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmListaCliente^ listaCliente = gcnew frmListaCliente;
 		listaCliente->Show();
+		ifstream ArchivoClienteEntrada("Clientes.dat", ios::binary | ios::app | ios::in);
+		if (!ArchivoClienteEntrada)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+		Cliente leerCliente;
+		ArchivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente), sizeof(Cliente));
+		while (!ArchivoClienteEntrada.eof())
+		{
+			System::String^ nombre = marshal_as<System::String^>(leerCliente.obtenerPrimerNombre());
+			System::String^ direccion = marshal_as<System::String^>(leerCliente.obtenerDireccion());
+			System::String^ ocupacion = marshal_as<System::String^>(leerCliente.obtenerOcupacion());
+			System::String^ correo = marshal_as<System::String^>(leerCliente.obtenerCorreo());
+			System::String^ tipoM = marshal_as<System::String^>(leerCliente.obtenerTipoMembresia());
+			std::string año1 = to_string(leerCliente.obtenerAñoIngreso());
+			std::string sald = to_string(leerCliente.obtenerSaldo());
+			std::string id = to_string(leerCliente.obtenerIDcliente());
+			System::String^ año = marshal_as<System::String^>(año1);
+			System::String^ saldo = marshal_as<System::String^>(sald);
+			System::String^ IDC = marshal_as<System::String^>(id);
+			listaCliente->dgvListaClientes->Rows->Add(IDC, nombre, direccion, año, tipoM, correo, ocupacion);
+			ArchivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente), sizeof(Cliente));
+		}
+
 	}
+private: System::Void frmCliente_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoClientes("Clientes.dat", ios::binary | ios::app | ios::out);
+	if (!archivoClientes)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	ifstream archivoPersonaEntrada("Personas.dat", ios::binary | ios::app | ios::in);
+	if (!archivoPersonaEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	Persona leerPersona;
+	archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	while (!archivoPersonaEntrada.eof())
+	{
+		std::string idPersona = to_string(leerPersona.obtenerID());
+		std::string tipoPersona = leerPersona.obtenerTipoPersona();
+		System::String^ ID = marshal_as<System::String^>(idPersona);
+		if (tipoPersona == "Cliente")
+		{
+			cboPersonas->Items->Add(ID);
+		}
+		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	}
+
+
+	for (int i = DateTime::Now.Year; i >= 1950; i--)
+	{
+		cboAñoIngreso->Items->Add(i);
+	}
+
+	archivoPersonaEntrada.close();
+}
+private: System::Void cboPersonas_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	ifstream archivoPersonaEntrada("Personas.dat", ios::binary | ios::app | ios::in);
+	if (!archivoPersonaEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	System::String^ IDpersona = cboPersonas->SelectedItem->ToString();
+	txtIDCliente->Text = IDpersona;
+	Persona leerPersona;
+	archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	while (!archivoPersonaEntrada.eof())
+	{
+		std::string nombre = leerPersona.obtenerPrimerNombre();
+		std::string apellido = leerPersona.obtenerApellidoPaterno();
+		System::String^ nombrep = marshal_as<System::String^>(nombre);
+		System::String^ apellidop = marshal_as<System::String^>(apellido);
+		std::string id = to_string(leerPersona.obtenerID());
+		System::String^ id1 = marshal_as<System::String^>(id);
+		if (id1 == IDpersona)
+		{
+			lblNombre->Text = nombrep;
+			lblApellido->Text = apellidop;
+		}
+		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	}
+
+}
+private: System::Void btnRegistrarCliente_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoClienteSalida("Clientes.dat", ios::binary | ios::app | ios::out);
+	if (!archivoClienteSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	ifstream archivoPersonaEntrada("Personas.dat", ios::binary | ios::app | ios::in);
+	if (!archivoPersonaEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	/////Archivo Personas
+	Persona leerPersona;
+	archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	while (!archivoPersonaEntrada.eof())
+	{
+		std::string id = to_string(leerPersona.obtenerID());
+		System::String^ ID = marshal_as<System::String^>(id);
+		if (ID == txtIDCliente->Text)
+		{
+			/////Variables persona
+			std::string nombre = leerPersona.obtenerPrimerNombre();
+			std::string apellido = leerPersona.obtenerApellidoPaterno();
+			std::string identificacion = leerPersona.obtenerIdentificacion();
+			std::string tipoC = leerPersona.obtenerTipoPersona();
+			std::string genero = leerPersona.obtenerGenero();
+			int telefono = Convert::ToInt32(leerPersona.obtenerTelefono());
+			int edad = Convert::ToInt32(leerPersona.obtenerEdad());
+			int IdP = Convert::ToInt32(leerPersona.obtenerID());
+			/////Variables Cliente
+			System::String^ dir = txtDireccionCliente->Text;
+			System::String^ ocup = txtOcupacion->Text;
+			System::String^ cor = txtCorreoCliente->Text;
+			System::String^ tip = cboMembresia->SelectedItem->ToString();
+			int año = Convert::ToInt32(cboAñoIngreso->SelectedItem->ToString());
+			double saldo = Convert::ToDouble(txtSaldo->Text);
+			int ID = Convert::ToInt32(txtIDCliente->Text);
+			std::string direccion = marshal_as<std::string>(dir);
+			std::string ocupacion = marshal_as<std::string>(ocup);
+			std::string correo = marshal_as<std::string>(cor);
+			std::string tipoM = marshal_as<std::string>(tip);
+			//////
+			Cliente cliente(nombre, apellido, identificacion, tipoC, genero, telefono, edad, IdP, direccion, ocupacion, correo, tipoM, año, saldo, ID);
+			archivoClienteSalida.write(reinterpret_cast<char*>(&cliente), sizeof(Cliente));
+			archivoClienteSalida.close();
+			txtCorreoCliente->Text = "";
+			txtDireccionCliente->Text = "";
+			txtIDCliente->Text = "";
+			txtOcupacion->Text = "";
+			txtSaldo->Text = "";
+			cboAñoIngreso->Text = "";
+			cboMembresia->Text = "";
+			cboPersonas->Text = "";
+		}
+		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	}
+}
 };
 }

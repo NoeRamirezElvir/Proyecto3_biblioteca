@@ -34,7 +34,9 @@ namespace PI2021IIIP3EQUIPO1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	public: System::Windows::Forms::DataGridView^ dgvListaClientes;
+	protected:
+
 	protected:
 
 
@@ -43,10 +45,31 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colIDcliente;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colNombreCliente;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colDireccionCliente;
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colAñoCliente;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colAñoingresoC;
 	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colTipoMembresiaCliente;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colCorreoCliente;
+	private: System::Windows::Forms::DataGridViewLinkColumn^ colCorreoCliente;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colOcupacionCliente;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -73,31 +96,31 @@ namespace PI2021IIIP3EQUIPO1 {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmListaCliente::typeid));
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvListaClientes = (gcnew System::Windows::Forms::DataGridView());
 			this->colIDcliente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colNombreCliente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colDireccionCliente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->colAñoCliente = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
+			this->colAñoingresoC = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colTipoMembresiaCliente = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
-			this->colCorreoCliente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->colCorreoCliente = (gcnew System::Windows::Forms::DataGridViewLinkColumn());
 			this->colOcupacionCliente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvListaClientes))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// dataGridView1
+			// dgvListaClientes
 			// 
-			this->dataGridView1->BackgroundColor = System::Drawing::Color::LightSteelBlue;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+			this->dgvListaClientes->BackgroundColor = System::Drawing::Color::LightSteelBlue;
+			this->dgvListaClientes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvListaClientes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->colIDcliente,
-					this->colNombreCliente, this->colDireccionCliente, this->colAñoCliente, this->colTipoMembresiaCliente, this->colCorreoCliente,
+					this->colNombreCliente, this->colDireccionCliente, this->colAñoingresoC, this->colTipoMembresiaCliente, this->colCorreoCliente,
 					this->colOcupacionCliente
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 124);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(745, 411);
-			this->dataGridView1->TabIndex = 0;
+			this->dgvListaClientes->Location = System::Drawing::Point(13, 96);
+			this->dgvListaClientes->Name = L"dgvListaClientes";
+			this->dgvListaClientes->Size = System::Drawing::Size(814, 445);
+			this->dgvListaClientes->TabIndex = 0;
 			// 
 			// colIDcliente
 			// 
@@ -114,21 +137,24 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->colDireccionCliente->HeaderText = L"Direccion";
 			this->colDireccionCliente->Name = L"colDireccionCliente";
 			// 
-			// colAñoCliente
+			// colAñoingresoC
 			// 
-			this->colAñoCliente->HeaderText = L"Año de ingreso";
-			this->colAñoCliente->Name = L"colAñoCliente";
+			this->colAñoingresoC->HeaderText = L"Año de ingreso";
+			this->colAñoingresoC->Name = L"colAñoingresoC";
+			this->colAñoingresoC->Width = 110;
 			// 
 			// colTipoMembresiaCliente
 			// 
 			this->colTipoMembresiaCliente->HeaderText = L"Tipo de membresia";
 			this->colTipoMembresiaCliente->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Clasica", L"Premium", L"Mixta" });
 			this->colTipoMembresiaCliente->Name = L"colTipoMembresiaCliente";
+			this->colTipoMembresiaCliente->Width = 150;
 			// 
 			// colCorreoCliente
 			// 
 			this->colCorreoCliente->HeaderText = L"Correo electronico";
 			this->colCorreoCliente->Name = L"colCorreoCliente";
+			this->colCorreoCliente->Width = 110;
 			// 
 			// colOcupacionCliente
 			// 
@@ -138,12 +164,12 @@ namespace PI2021IIIP3EQUIPO1 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::WhiteSmoke;
-			this->label1->Location = System::Drawing::Point(234, 44);
+			this->label1->Location = System::Drawing::Point(255, 34);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(294, 36);
+			this->label1->Size = System::Drawing::Size(325, 40);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Clientes Registrados";
 			// 
@@ -152,14 +178,14 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkSlateGray;
-			this->ClientSize = System::Drawing::Size(772, 561);
+			this->ClientSize = System::Drawing::Size(837, 553);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->dgvListaClientes);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmListaCliente";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Clientes Registrados";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvListaClientes))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
