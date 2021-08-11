@@ -1,9 +1,17 @@
 #pragma once
 #include "frmListaDaños.h"
-#include "frmPrestamo.h"
+//#include "frmPrestamo.h"
+#include "Daño.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
+
 
 namespace PI2021IIIP3EQUIPO1 {
-
+	using namespace msclr::interop; 
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -38,13 +46,13 @@ namespace PI2021IIIP3EQUIPO1 {
 		}
 	private: System::Windows::Forms::Label^ lblDañoID;
 	private: System::Windows::Forms::Label^ lblTitulo;
-	protected:
+	
 
-	private: System::Windows::Forms::Label^ lblCostoExtravio;
+
 	private: System::Windows::Forms::Label^ lblTipoDaño;
 	private: System::Windows::Forms::Label^ lblCostoDaño;
 
-	private: System::Windows::Forms::TextBox^ txtCostoExtravio;
+
 
 	private: System::Windows::Forms::TextBox^ txtCostoDaño;
 
@@ -65,11 +73,11 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
-	private: System::Windows::Forms::PictureBox^ pictureBox4;
 
 
 
 
+	protected:
 
 	private:
 		/// <summary>
@@ -87,10 +95,8 @@ namespace PI2021IIIP3EQUIPO1 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmDaño::typeid));
 			this->lblDañoID = (gcnew System::Windows::Forms::Label());
 			this->lblTitulo = (gcnew System::Windows::Forms::Label());
-			this->lblCostoExtravio = (gcnew System::Windows::Forms::Label());
 			this->lblTipoDaño = (gcnew System::Windows::Forms::Label());
 			this->lblCostoDaño = (gcnew System::Windows::Forms::Label());
-			this->txtCostoExtravio = (gcnew System::Windows::Forms::TextBox());
 			this->txtCostoDaño = (gcnew System::Windows::Forms::TextBox());
 			this->cboTipoDaño = (gcnew System::Windows::Forms::ComboBox());
 			this->btnAgregar = (gcnew System::Windows::Forms::Button());
@@ -99,11 +105,9 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// lblDañoID
@@ -127,19 +131,10 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblTitulo->Text = L"Penalizaciones por Daño ";
 			this->lblTitulo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// lblCostoExtravio
-			// 
-			this->lblCostoExtravio->AutoSize = true;
-			this->lblCostoExtravio->Location = System::Drawing::Point(162, 175);
-			this->lblCostoExtravio->Name = L"lblCostoExtravio";
-			this->lblCostoExtravio->Size = System::Drawing::Size(97, 13);
-			this->lblCostoExtravio->TabIndex = 2;
-			this->lblCostoExtravio->Text = L"Costo por extravío:";
-			// 
 			// lblTipoDaño
 			// 
 			this->lblTipoDaño->AutoSize = true;
-			this->lblTipoDaño->Location = System::Drawing::Point(186, 224);
+			this->lblTipoDaño->Location = System::Drawing::Point(186, 181);
 			this->lblTipoDaño->Name = L"lblTipoDaño";
 			this->lblTipoDaño->Size = System::Drawing::Size(73, 13);
 			this->lblTipoDaño->TabIndex = 3;
@@ -148,22 +143,15 @@ namespace PI2021IIIP3EQUIPO1 {
 			// lblCostoDaño
 			// 
 			this->lblCostoDaño->AutoSize = true;
-			this->lblCostoDaño->Location = System::Drawing::Point(177, 269);
+			this->lblCostoDaño->Location = System::Drawing::Point(177, 226);
 			this->lblCostoDaño->Name = L"lblCostoDaño";
 			this->lblCostoDaño->Size = System::Drawing::Size(82, 13);
 			this->lblCostoDaño->TabIndex = 4;
 			this->lblCostoDaño->Text = L"Costo por daño:";
 			// 
-			// txtCostoExtravio
-			// 
-			this->txtCostoExtravio->Location = System::Drawing::Point(277, 168);
-			this->txtCostoExtravio->Name = L"txtCostoExtravio";
-			this->txtCostoExtravio->Size = System::Drawing::Size(121, 20);
-			this->txtCostoExtravio->TabIndex = 6;
-			// 
 			// txtCostoDaño
 			// 
-			this->txtCostoDaño->Location = System::Drawing::Point(277, 262);
+			this->txtCostoDaño->Location = System::Drawing::Point(277, 223);
 			this->txtCostoDaño->Name = L"txtCostoDaño";
 			this->txtCostoDaño->Size = System::Drawing::Size(121, 20);
 			this->txtCostoDaño->TabIndex = 8;
@@ -173,12 +161,13 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboTipoDaño->FormattingEnabled = true;
 			this->cboTipoDaño->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
 				L"Paginas rayadas", L"Deterioro de la estructura",
-					L"Otro", L""
+					L"Extravio", L"Otro"
 			});
-			this->cboTipoDaño->Location = System::Drawing::Point(277, 217);
+			this->cboTipoDaño->Location = System::Drawing::Point(277, 178);
 			this->cboTipoDaño->Name = L"cboTipoDaño";
 			this->cboTipoDaño->Size = System::Drawing::Size(121, 21);
 			this->cboTipoDaño->TabIndex = 16;
+			this->cboTipoDaño->SelectedIndexChanged += gcnew System::EventHandler(this, &frmDaño::cboTipoDaño_SelectedIndexChanged);
 			// 
 			// btnAgregar
 			// 
@@ -187,13 +176,14 @@ namespace PI2021IIIP3EQUIPO1 {
 				static_cast<System::Byte>(0)));
 			this->btnAgregar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnAgregar.Image")));
 			this->btnAgregar->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btnAgregar->Location = System::Drawing::Point(132, 356);
+			this->btnAgregar->Location = System::Drawing::Point(132, 308);
 			this->btnAgregar->Name = L"btnAgregar";
 			this->btnAgregar->Size = System::Drawing::Size(100, 38);
 			this->btnAgregar->TabIndex = 17;
 			this->btnAgregar->Text = L"Agregar  ";
 			this->btnAgregar->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->btnAgregar->UseVisualStyleBackColor = false;
+			this->btnAgregar->Click += gcnew System::EventHandler(this, &frmDaño::btnAgregar_Click);
 			// 
 			// btnMostrar
 			// 
@@ -203,7 +193,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnMostrar->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->btnMostrar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMostrar.Image")));
 			this->btnMostrar->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btnMostrar->Location = System::Drawing::Point(277, 356);
+			this->btnMostrar->Location = System::Drawing::Point(277, 308);
 			this->btnMostrar->Name = L"btnMostrar";
 			this->btnMostrar->Size = System::Drawing::Size(100, 38);
 			this->btnMostrar->TabIndex = 18;
@@ -214,7 +204,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			// txtID
 			// 
-			this->txtID->Location = System::Drawing::Point(277, 125);
+			this->txtID->Location = System::Drawing::Point(277, 129);
 			this->txtID->Name = L"txtID";
 			this->txtID->Size = System::Drawing::Size(121, 20);
 			this->txtID->TabIndex = 19;
@@ -231,7 +221,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			// pictureBox2
 			// 
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(106, 262);
+			this->pictureBox2->Location = System::Drawing::Point(106, 219);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(32, 30);
 			this->pictureBox2->TabIndex = 21;
@@ -240,28 +230,18 @@ namespace PI2021IIIP3EQUIPO1 {
 			// pictureBox3
 			// 
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(106, 217);
+			this->pictureBox3->Location = System::Drawing::Point(106, 174);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(32, 30);
 			this->pictureBox3->TabIndex = 22;
 			this->pictureBox3->TabStop = false;
-			// 
-			// pictureBox4
-			// 
-			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-			this->pictureBox4->Location = System::Drawing::Point(106, 168);
-			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(32, 33);
-			this->pictureBox4->TabIndex = 23;
-			this->pictureBox4->TabStop = false;
 			// 
 			// frmDaño
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkCyan;
-			this->ClientSize = System::Drawing::Size(528, 463);
-			this->Controls->Add(this->pictureBox4);
+			this->ClientSize = System::Drawing::Size(515, 417);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
@@ -270,20 +250,18 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Controls->Add(this->btnAgregar);
 			this->Controls->Add(this->cboTipoDaño);
 			this->Controls->Add(this->txtCostoDaño);
-			this->Controls->Add(this->txtCostoExtravio);
 			this->Controls->Add(this->lblCostoDaño);
 			this->Controls->Add(this->lblTipoDaño);
-			this->Controls->Add(this->lblCostoExtravio);
 			this->Controls->Add(this->lblTitulo);
 			this->Controls->Add(this->lblDañoID);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmDaño";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Daño";
+			this->Load += gcnew System::EventHandler(this, &frmDaño::frmDaño_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -292,9 +270,67 @@ namespace PI2021IIIP3EQUIPO1 {
 
 
 	private: System::Void btnMostrar_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmListaDaños^ formulario = gcnew frmListaDaños;
-		formulario->Show();
-
+		frmListaDaños^ listaDaños = gcnew frmListaDaños;
+		listaDaños->Show();
+		ifstream archivoDañosEntrada("Daños.dat", ios::binary | ios::app | ios::in);
+		if (!archivoDañosEntrada)
+		{
+			MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+		Daño leerDaño;
+		archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaño),
+			sizeof(Daño));
+		while (!archivoDañosEntrada.eof())
+		{
+			std::string id = to_string(leerDaño.obtenerDañoID());
+			System::String^ tipoD = marshal_as<System::String^>(leerDaño.obtenerTipoDaño());
+			std::string costo = to_string(leerDaño.obtenerCostoDaño());
+			System::String^ ID = marshal_as<System::String^>(id);
+			System::String^ Costo = marshal_as<System::String^>(costo);
+			listaDaños->dgvDaños->Rows->Add(ID, tipoD, Costo);
+			archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaño),
+				sizeof(Daño));
+		}
 	}
-	};
+private: System::Void frmDaño_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoDaños("Daños.dat", ios::binary | ios::app | ios::out);
+	if (!archivoDaños)
+	{
+		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	txtID->Text = "";
+	cboTipoDaño->Text = "";
+	txtCostoDaño->Text = "";
+}
+private: System::Void btnAgregar_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoDañoSalida("Daños.dat", ios::binary | ios::app | ios::out);
+	if (!archivoDañoSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	int IDdaño = Convert::ToInt32(txtID->Text);
+	System::String^ TIPO = cboTipoDaño->SelectedItem->ToString();
+	double costo = Convert::ToDouble(txtCostoDaño->Text); 
+	std::string tipo = marshal_as<std::string>(TIPO);
+
+	Daño daño(IDdaño, tipo, costo);
+	archivoDañoSalida.write(reinterpret_cast<char*>(&daño), sizeof(Daño));
+	archivoDañoSalida.close();
+
+	txtID->Text = "";
+	cboTipoDaño->Text = "";
+	txtCostoDaño->Text = "";
+}
+private: System::Void cboTipoDaño_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	Daño daño;
+	System::String^ tipo = cboTipoDaño->SelectedItem->ToString();
+	std::string Tipo = marshal_as<std::string>(tipo);
+	daño.establecerTipoDaño(Tipo);
+
+	txtCostoDaño->Text = String::Format("{0:F}", daño.calcularDaño()); 
+}
+};
 }

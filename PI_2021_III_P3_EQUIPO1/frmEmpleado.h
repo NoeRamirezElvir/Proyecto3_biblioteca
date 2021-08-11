@@ -1,7 +1,16 @@
 #pragma once
 #include "frmListaEmpleado.h"
-namespace PI2021IIIP3EQUIPO1 {
+#include "Empleado.h"
+#include "Persona.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
 
+namespace PI2021IIIP3EQUIPO1 {
+	using namespace msclr::interop;
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -35,9 +44,9 @@ namespace PI2021IIIP3EQUIPO1 {
 			}
 		}
 	private: System::Windows::Forms::Label^ lblTitulo;
-	protected:
+	/*protected:
 
-	protected:
+	protected:*/
 
 	private: System::Windows::Forms::Label^ lblIngreso;
 	private: System::Windows::Forms::Label^ lblSueldo;
@@ -94,6 +103,9 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ lblEmpleadoID;
 	private: System::Windows::Forms::TextBox^ txtEmpleadoID;
 
+	protected:
+
+	protected:
 
 	private:
 		/// <summary>
@@ -285,7 +297,8 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboID->Location = System::Drawing::Point(146, 129);
 			this->cboID->Name = L"cboID";
 			this->cboID->Size = System::Drawing::Size(121, 21);
-			this->cboID->TabIndex = 26;
+			this->cboID->TabIndex = 1;
+			this->cboID->SelectedIndexChanged += gcnew System::EventHandler(this, &frmEmpleado::cboID_SelectedIndexChanged); 
 			// 
 			// lblN
 			// 
@@ -335,6 +348,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnAgregar->Text = L"Agregar    ";
 			this->btnAgregar->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->btnAgregar->UseVisualStyleBackColor = false;
+			this->btnAgregar->Click += gcnew System::EventHandler(this, &frmEmpleado::btnAgregar_Click);
 			// 
 			// btnMostrar
 			// 
@@ -455,7 +469,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->txtEmpleadoID->Location = System::Drawing::Point(290, 129);
 			this->txtEmpleadoID->Name = L"txtEmpleadoID";
 			this->txtEmpleadoID->Size = System::Drawing::Size(122, 20);
-			this->txtEmpleadoID->TabIndex = 46;
+			this->txtEmpleadoID->TabIndex = 5;
 			// 
 			// frmEmpleado
 			// 
@@ -501,6 +515,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmEmpleado";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Empleado";
+			this->Load += gcnew System::EventHandler(this, &frmEmpleado::frmEmpleado_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -517,8 +532,150 @@ namespace PI2021IIIP3EQUIPO1 {
 #pragma endregion
 
 	private: System::Void btnMostrar_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmListaEmpleado^ formulario = gcnew frmListaEmpleado;
-		formulario->Show();
+		frmListaEmpleado^ listaEmpleado = gcnew frmListaEmpleado;
+		listaEmpleado->Show();
+		ifstream ArchivoEmpleadoEntrada("Empleados.dat", ios::binary | ios::app | ios::in);
+		if (!ArchivoEmpleadoEntrada)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+		Empleado leerEmpleado;
+		ArchivoEmpleadoEntrada.read(reinterpret_cast<char*>(&leerEmpleado),
+			sizeof(Empleado)); 
+		while (!ArchivoEmpleadoEntrada.eof()) {
+			System::String^ nombre = marshal_as<System::String^>(leerEmpleado.obtenerPrimerNombre());
+			System::String^ apellido = marshal_as<System::String^>(leerEmpleado.obtenerApellidoPaterno());
+			System::String^ departamento = marshal_as<System::String^>(leerEmpleado.obtenerDepartamento());
+			System::String^ fecha = marshal_as<System::String^>(leerEmpleado.obtenerFechaIngreso());
+			std::string sueldo = to_string(leerEmpleado.obtenerSueldo());
+			std::string horas = to_string(leerEmpleado.obtenerHorasExtras());
+			std::string ventas = to_string(leerEmpleado.obtenerCantVentas());
+			std::string precio = to_string(leerEmpleado.obtenerPrecioHorasE());
+			std::string id = to_string(leerEmpleado.obtenerEmpleadoID());
+			System::String^ Sueldo = marshal_as<System::String^>(sueldo);
+			System::String^ Horas = marshal_as<System::String^>(horas);
+			System::String^ Ventas = marshal_as<System::String^>(ventas);
+			System::String^ Precio = marshal_as<System::String^>(precio);
+			System::String^ ID = marshal_as<System::String^>(id);
+			listaEmpleado->dgvEmpleado->Rows->Add(ID, nombre, apellido, fecha, departamento);
+			ArchivoEmpleadoEntrada.read(reinterpret_cast<char*>(&leerEmpleado),
+				sizeof(Empleado));
+		}
 	}
-	};
+private: System::Void frmEmpleado_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoEmpleados("Empleados.dat", ios::binary | ios::app | ios::out);
+	if (!archivoEmpleados)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	ifstream archivoPersonaEntrada("Personas.dat", ios::binary | ios::app | ios::in);
+	if (!archivoPersonaEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	Persona leerPersona;
+	archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	while (!archivoPersonaEntrada.eof())
+	{
+		std::string idPersona = to_string(leerPersona.obtenerID());
+		std::string tipoPersona = leerPersona.obtenerTipoPersona();
+		System::String^ ID = marshal_as<System::String^>(idPersona);
+		if (tipoPersona == "Empleado")
+		{
+			cboID->Items->Add(ID);
+		}
+		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	}
+
+	archivoPersonaEntrada.close();
+}
+private: System::Void cboID_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	ifstream archivoPersonaEntrada("Personas.dat", ios::binary | ios::app | ios::in);
+	if (!archivoPersonaEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	System::String^ IDpersona = cboID->SelectedItem->ToString();
+	txtEmpleadoID->Text = IDpersona;
+	Persona leerPersona;
+	archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	while (!archivoPersonaEntrada.eof())
+	{
+		std::string nombre = leerPersona.obtenerPrimerNombre();
+		std::string apellido = leerPersona.obtenerApellidoPaterno();
+		System::String^ nombrep = marshal_as<System::String^>(nombre);
+		System::String^ apellidop = marshal_as<System::String^>(apellido);
+		std::string id = to_string(leerPersona.obtenerID());
+		System::String^ id1 = marshal_as<System::String^>(id);
+		if (id1 == IDpersona)
+		{
+			lblNombre->Text = nombrep;
+			lblApellido->Text = apellidop;
+		}
+		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+	}
+
+}
+private: System::Void btnAgregar_Click(System::Object^ sender, System::EventArgs^ e) {
+		ofstream archivoEmpleadoSalida("Empleados.dat", ios::binary | ios::app | ios::out);
+		if (!archivoEmpleadoSalida) {
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+		ifstream archivoPersonaEntrada("Personas.dat", ios::binary | ios::app | ios::in);
+		if (!archivoPersonaEntrada)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+		/////Archivo Personas
+		Persona leerPersona;
+		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+		while (!archivoPersonaEntrada.eof())
+		{
+			std::string id = to_string(leerPersona.obtenerID());
+			System::String^ ID = marshal_as<System::String^>(id);
+			if (ID == txtEmpleadoID->Text)
+			{
+				/////Variables persona
+				std::string nombre = leerPersona.obtenerPrimerNombre();
+				std::string apellido = leerPersona.obtenerApellidoPaterno();
+				std::string identificacion = leerPersona.obtenerIdentificacion();
+				std::string tipoC = leerPersona.obtenerTipoPersona();
+				std::string genero = leerPersona.obtenerGenero();
+				int telefono = Convert::ToInt32(leerPersona.obtenerTelefono());
+				int edad = Convert::ToInt32(leerPersona.obtenerEdad());
+				int IdP = Convert::ToInt32(leerPersona.obtenerID());
+				/////Variables empleado
+				System::String^ depa = txtDepartamento->Text;
+				System::String^ fec = txtIngreso->Text;
+				int ID = Convert::ToInt32(txtEmpleadoID->Text);
+				double sueldo = Convert::ToDouble(txtSueldo->Text);
+				double horas = Convert::ToDouble(txtHorasExtras->Text);
+				double ventas = Convert::ToDouble(txtVentas->Text);
+				double precio = Convert::ToDouble(txtPrecioHora->Text);
+				std::string departamento = marshal_as<std::string>(depa);
+				std::string fecha = marshal_as<std::string>(fec);
+				//////// 
+				Empleado empleado(IdP, nombre, apellido, ID, fecha, sueldo,
+					horas, ventas, precio, departamento);
+				archivoEmpleadoSalida.write(reinterpret_cast<char*>(&empleado),
+					sizeof(Empleado));
+				archivoEmpleadoSalida.close();
+				cboID->Text = "";
+				txtEmpleadoID->Text = "";
+				txtIngreso->Text = "";
+				txtSueldo->Text = "";
+				txtHorasExtras->Text = "";
+				txtVentas->Text = "";
+				txtPrecioHora->Text = "";
+				txtDepartamento->Text = ""; 
+			}
+			archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+		}
+}
+};
 }

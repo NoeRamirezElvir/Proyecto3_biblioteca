@@ -1,7 +1,18 @@
 #pragma once
 #include "frmListaPrestamo.h"
-namespace PI2021IIIP3EQUIPO1 {
+#include "Prestamo.h"
+#include "Cliente.h"
+#include "Daño.h" 
+#include "Libro.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
 
+namespace PI2021IIIP3EQUIPO1 {
+	using namespace msclr::interop;
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -191,11 +202,11 @@ namespace PI2021IIIP3EQUIPO1 {
 			// lblDaño
 			// 
 			this->lblDaño->AutoSize = true;
-			this->lblDaño->Location = System::Drawing::Point(202, 303);
+			this->lblDaño->Location = System::Drawing::Point(188, 304);
 			this->lblDaño->Name = L"lblDaño";
-			this->lblDaño->Size = System::Drawing::Size(69, 13);
+			this->lblDaño->Size = System::Drawing::Size(83, 13);
 			this->lblDaño->TabIndex = 6;
-			this->lblDaño->Text = L"Daño al libro:";
+			this->lblDaño->Text = L"ID Daño al libro:";
 			// 
 			// lblLibro
 			// 
@@ -227,6 +238,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboID->Name = L"cboID";
 			this->cboID->Size = System::Drawing::Size(100, 21);
 			this->cboID->TabIndex = 23;
+			this->cboID->SelectedIndexChanged += gcnew System::EventHandler(this, &frmPrestamo::cboID_SelectedIndexChanged);
 			// 
 			// lblACliente
 			// 
@@ -283,6 +295,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnAgregar->Text = L"Agregar    ";
 			this->btnAgregar->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->btnAgregar->UseVisualStyleBackColor = false;
+			this->btnAgregar->Click += gcnew System::EventHandler(this, &frmPrestamo::btnAgregar_Click);
 			// 
 			// btnMostrar
 			// 
@@ -406,6 +419,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmPrestamo";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Préstamo";
+			this->Load += gcnew System::EventHandler(this, &frmPrestamo::frmPrestamo_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -420,10 +434,186 @@ namespace PI2021IIIP3EQUIPO1 {
 #pragma endregion
 
 
-	private: System::Void btnMostrar_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmListaPrestamo^ formulario = gcnew frmListaPrestamo;
-		formulario->Show();
+private: System::Void btnMostrar_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmListaPrestamo^ listaPrestamo = gcnew frmListaPrestamo;
+		listaPrestamo->Show();
+		ifstream archivoPrestamoEntrada("Prestamos.dat", ios::binary | ios::app | ios::in);
+		if (!archivoPrestamoEntrada)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+		Prestamo leerPrestamo;
+		archivoPrestamoEntrada.read(reinterpret_cast<char*>(&leerPrestamo),
+			sizeof(Prestamo));
+		while (!archivoPrestamoEntrada.eof())
+		{
+			System::String^ nombre = marshal_as<System::String^>(leerPrestamo.obtenerPrimerNombre());
+			System::String^ apellido = marshal_as<System::String^>(leerPrestamo.obtenerApellidoPaterno());
+			std::string id = to_string(leerPrestamo.obtenerIDcliente());
+			System::String^ ID = marshal_as<System::String^>(id);
+			System::String^ tipo = marshal_as<System::String^>(leerPrestamo.obtenerTipoPrestamo());
+			std::string dias = to_string(leerPrestamo.obtenerDias());
+			std::string costo = to_string(leerPrestamo.obtenerCostoDia());
+			System::String^ dias_ = marshal_as<System::String^>(dias);
+			System::String^ costo_ = marshal_as<System::String^>(costo);
+			System::String^ daño = marshal_as<System::String^>(leerPrestamo.obtener_Daño());
+			System::String^ libro = marshal_as<System::String^>(leerPrestamo.obtener_Libro());
+			listaPrestamo->dgvPrestamo->Rows->Add(ID, nombre, apellido, tipo, dias_, costo_, daño, libro);
+			archivoPrestamoEntrada.read(reinterpret_cast<char*>(&leerPrestamo),
+				sizeof(Prestamo));
+		}
+}
+private: System::Void frmPrestamo_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoPrestamos("Prestamos.dat", ios::binary | ios::app | ios::out);
+	if (!archivoPrestamos)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
 	}
-	
+
+	ifstream archivoClienteEntrada("Clientes.dat", ios::binary | ios::app | ios::in);
+	if (!archivoClienteEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	Cliente leerCliente;
+	archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente),
+		sizeof(Cliente));
+	while (!archivoClienteEntrada.eof())
+	{
+		std::string Clienteid = to_string(leerCliente.obtenerIDcliente());
+		System::String^ ID = marshal_as<System::String^>(Clienteid);
+		cboID->Items->Add(ID);
+		archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente),
+			sizeof(Cliente));
+	}
+	archivoClienteEntrada.close();
+
+	ifstream archivoDañosEntrada("Daños.dat", ios::binary | ios::app | ios::in);
+	if (!archivoDañosEntrada)
+	{
+		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	Daño leerDaños;
+	archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaños), sizeof(Daño));
+	while (!archivoDañosEntrada.eof())
+	{
+		std::string DañoID = to_string(leerDaños.obtenerDañoID());
+		std::string TipoDaño = leerDaños.obtenerTipoDaño();
+		System::String^ ID = marshal_as<System::String^>(DañoID);
+		System::String^ tipo = marshal_as<System::String^>(TipoDaño);
+		cboDaño->Items->Add(ID); 
+		//cboDaño->Items->Add(tipo);
+		archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaños), sizeof(Daño)); 
+	}
+	archivoDañosEntrada.close();
+
+	ifstream archivoLibrosEntrada("Libros.dat", ios::binary | ios::app | ios::in);
+	if (!archivoLibrosEntrada)
+	{
+		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	Libro leerLibro;
+	archivoLibrosEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
+	while (!archivoLibrosEntrada.eof())
+	{
+		System::String^ _Libro = marshal_as<System::String^>(leerLibro.obtenerNombreLibro());
+		cboLibro->Items->Add(_Libro); 
+		archivoLibrosEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro)); 
+	}
+	archivoLibrosEntrada.close();
+
+	cboID->Text = "";
+	txtTipoPrestamo->Text = "";
+	txtDias->Text = "";
+	txtCosto->Text = "";
+	cboDaño->Text + "";
+	cboLibro->Text = ""; 
+}
+private: System::Void cboID_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	ifstream archivoClienteEntrada("Clientes.dat", ios::binary | ios::app | ios::in);
+	if (!archivoClienteEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	System::String^ IDpersona = cboID->SelectedItem->ToString();
+	Cliente leerPersona;
+	archivoClienteEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Cliente));
+	while (!archivoClienteEntrada.eof())
+	{
+		std::string nombre = leerPersona.obtenerPrimerNombre();
+		std::string apellido = leerPersona.obtenerApellidoPaterno();
+		System::String^ nombrep = marshal_as<System::String^>(nombre);
+		System::String^ apellidop = marshal_as<System::String^>(apellido);
+		std::string id = to_string(leerPersona.obtenerID());
+		System::String^ id1 = marshal_as<System::String^>(id);
+		if (id1 == IDpersona)
+		{
+			lblNombre->Text = nombrep;
+			lblApellido->Text = apellidop;
+		}
+		archivoClienteEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Cliente));
+	}
+}
+
+private: System::Void btnAgregar_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoPrestamoSalida("Prestamos.dat", ios::binary | ios::app | ios::in);
+	if (!archivoPrestamoSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	ifstream archivoClienteEntrada("Clientes.dat", ios::binary | ios::app | ios::in);
+	if (!archivoClienteEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+
+	Cliente leerCliente;
+	archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente),
+		sizeof(Cliente));
+	while (!archivoClienteEntrada.eof())
+	{
+		std::string membresia = leerCliente.obtenerTipoMembresia();
+		int clienteID = leerCliente.obtenerIDcliente();
+		int año = leerCliente.obtenerAñoIngreso();
+		double saldo = leerCliente.obtenerSaldo();
+		std::string direccion = leerCliente.obtenerDireccion();
+		std::string ocupacion = leerCliente.obtenerOcupacion();
+		std::string correo = leerCliente.obtenerCorreo();
+		std::string nombre = leerCliente.obtenerPrimerNombre();
+		std::string apellido = leerCliente.obtenerApellidoPaterno();
+
+		System::String^ presta = txtTipoPrestamo->Text;
+		System::String^ daño = cboDaño->SelectedItem->ToString();
+		System::String^ libro = cboLibro->SelectedItem->ToString();
+		double costo = Convert::ToDouble(txtCosto->Text);
+		int dias_ = Convert::ToInt32(txtDias->Text); 
+		std::string prestamo_ = marshal_as<std::string>(presta);
+		std::string Daño = marshal_as<std::string>(daño);
+		std::string Libro = marshal_as<std::string>(libro);
+		int _id = Convert::ToInt32(cboID->SelectedItem->ToString());
+		
+		Prestamo prestamo(_id, nombre, apellido, prestamo_, dias_, costo, Daño, Libro);
+		archivoPrestamoSalida.write(reinterpret_cast<char*>(&prestamo),
+			sizeof(Prestamo));
+		archivoPrestamoSalida.close();
+
+		cboID->Text = "";
+		txtTipoPrestamo->Text = "";
+		txtDias->Text = "";
+		txtCosto->Text = "";
+		cboDaño->Text = "";
+		cboLibro->Text = "";
+		archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente),
+			sizeof(Cliente));
+	}
+
+}
 };
 }

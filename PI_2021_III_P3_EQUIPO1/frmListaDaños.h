@@ -34,13 +34,22 @@ namespace PI2021IIIP3EQUIPO1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dgvDaños;
+	public: System::Windows::Forms::DataGridView^ dgvDaños; 
 	protected:
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colID;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colCostoDaño;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colCostoExtravio;
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colTipoDaño;
+
+
+
+
 	private: System::Windows::Forms::Label^ lblTitulo;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colID;
+	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colTipoDaño;
+	public: System::Windows::Forms::DataGridViewTextBoxColumn^ colCostoDaño;
+
+
+
+
+
+
 
 
 
@@ -65,11 +74,10 @@ namespace PI2021IIIP3EQUIPO1 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmListaDaños::typeid));
 			this->dgvDaños = (gcnew System::Windows::Forms::DataGridView());
-			this->colID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->colCostoDaño = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->colCostoExtravio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->colTipoDaño = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
 			this->lblTitulo = (gcnew System::Windows::Forms::Label());
+			this->colCostoDaño = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->colTipoDaño = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
+			this->colID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvDaños))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -77,34 +85,14 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			this->dgvDaños->BackgroundColor = System::Drawing::Color::LightCyan;
 			this->dgvDaños->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvDaños->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
-				this->colID, this->colCostoDaño,
-					this->colCostoExtravio, this->colTipoDaño
+			this->dgvDaños->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->colID, this->colTipoDaño,
+					this->colCostoDaño
 			});
 			this->dgvDaños->Location = System::Drawing::Point(27, 100);
 			this->dgvDaños->Name = L"dgvDaños";
 			this->dgvDaños->Size = System::Drawing::Size(546, 462);
 			this->dgvDaños->TabIndex = 0;
-			// 
-			// colID
-			// 
-			this->colID->HeaderText = L"ID";
-			this->colID->Name = L"colID";
-			// 
-			// colCostoDaño
-			// 
-			this->colCostoDaño->HeaderText = L"Costo por daño";
-			this->colCostoDaño->Name = L"colCostoDaño";
-			// 
-			// colCostoExtravio
-			// 
-			this->colCostoExtravio->HeaderText = L"Costo de extravio";
-			this->colCostoExtravio->Name = L"colCostoExtravio";
-			// 
-			// colTipoDaño
-			// 
-			this->colTipoDaño->HeaderText = L"Tipo de daño";
-			this->colTipoDaño->Name = L"colTipoDaño";
 			// 
 			// lblTitulo
 			// 
@@ -118,6 +106,26 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblTitulo->TabIndex = 1;
 			this->lblTitulo->Text = L"Lista de Daños Registrados";
 			// 
+			// colCostoDaño
+			// 
+			this->colCostoDaño->HeaderText = L"Costo por daño";
+			this->colCostoDaño->Name = L"colCostoDaño";
+			this->colCostoDaño->DefaultCellStyle->Format = "{0:F}";  
+			// 
+			// colTipoDaño
+			// 
+			this->colTipoDaño->HeaderText = L"Tipo de daño";
+			this->colTipoDaño->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Paginas rayadas", L"Deterioro de la estructura",
+					L"Extravio", L"Otro"
+			});
+			this->colTipoDaño->Name = L"colTipoDaño";
+			// 
+			// colID
+			// 
+			this->colID->HeaderText = L"ID";
+			this->colID->Name = L"colID";
+			// 
 			// frmListaDaños
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -130,6 +138,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmListaDaños";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Registro de Daños";
+			this->Load += gcnew System::EventHandler(this, &frmListaDaños::frmListaDaños_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvDaños))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -138,5 +147,7 @@ namespace PI2021IIIP3EQUIPO1 {
 #pragma endregion
 
 
-	};
+	private: System::Void frmListaDaños_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
