@@ -5,7 +5,7 @@
 #include "Cliente.h"
 #include "Empleado.h"
 #include "Daño.h"
-#include "Prestamo.h"; 
+#include "Prestamo.h"
 
 class Factura : public Prestamo, Daño  
 {

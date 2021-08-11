@@ -16,7 +16,7 @@ Empleado::Empleado(int personaID, string nombre, string apellido, int ID, string
 		establecerDepartamento(departamento);
 }
 void Empleado::establecerFechaIngreso(std::string fecha) {
-	int longitud = fecha.size();
+	int longitud = (int)fecha.size();
 	longitud = (longitud < 30 ? longitud : 29);
 	fecha.copy(fechaIngreso, longitud);
 	fechaIngreso[longitud] = '\0';
@@ -61,7 +61,7 @@ double Empleado::obtenerCantVentas() const {
 	return cantVentas;
 }
 void Empleado::establecerDepartamento(std::string departamento) {
-	int longitud = departamento.size();
+	int longitud = (int)departamento.size();
 	longitud = (longitud < 20 ? longitud : 19);
 	departamento.copy(Departamento, longitud);
 	Departamento[longitud] = '\0';
@@ -95,7 +95,7 @@ void Empleado::imprimir() const {
 }
 
 void Empleado::registrarEmpleado() {
-	int ID;
+	int ID = 0;
 	string ingreso, _departamento;
 	double _sueldo, horas_extras, cant_ventas, precioxhora;
 

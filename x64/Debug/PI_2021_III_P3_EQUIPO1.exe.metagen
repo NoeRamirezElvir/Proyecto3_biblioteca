@@ -58,18 +58,17 @@ Class PI2021IIIP3EQUIPO1.frmComputadora: AutoLayout, AnsiClass, Class, Public, B
 Class PI2021IIIP3EQUIPO1.frmListaDaños: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class PI2021IIIP3EQUIPO1.frmListaPrestamo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class PI2021IIIP3EQUIPO1.frmPrestamo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvDaños : Public
+    System.Windows.Forms.DataGridViewTextBoxColumn colCostoDaño : Public
 Class PI2021IIIP3EQUIPO1.frmDaño: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmListaEmpleado: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvEmpleado : Public
 Class PI2021IIIP3EQUIPO1.frmEmpleado: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -82,6 +81,8 @@ Class PI2021IIIP3EQUIPO1.frmEstante: AutoLayout, AnsiClass, Class, Public, Befor
 Class PI2021IIIP3EQUIPO1.frmListaFactura: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvFactura : Public
 Class PI2021IIIP3EQUIPO1.frmFactura: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -108,6 +109,14 @@ Class PI2021IIIP3EQUIPO1.frmVisitasSalaComputo: AutoLayout, AnsiClass, Class, Pu
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmSalaComputo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmListaPrestamo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvPrestamo : Public
+Class PI2021IIIP3EQUIPO1.frmPrestamo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmListaProveedores: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

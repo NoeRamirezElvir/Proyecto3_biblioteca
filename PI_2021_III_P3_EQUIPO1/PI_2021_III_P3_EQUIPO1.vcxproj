@@ -123,6 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cliente.cpp" />
+    <ClCompile Include="Daño.cpp" />
+    <ClCompile Include="Empleado.cpp" />
+    <ClCompile Include="Factura.cpp" />
     <ClCompile Include="frmBiblioteca.cpp" />
     <ClCompile Include="frmCliente.cpp" />
     <ClCompile Include="frmComputadora.cpp" />
@@ -155,10 +158,14 @@
     <ClCompile Include="frmVisitasSalaComputo.cpp" />
     <ClCompile Include="Libro.cpp" />
     <ClCompile Include="Persona.cpp" />
+    <ClCompile Include="Prestamo.cpp" />
     <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cliente.h" />
+    <ClInclude Include="Daño.h" />
+    <ClInclude Include="Empleado.h" />
+    <ClInclude Include="Factura.h" />
     <ClInclude Include="frmBiblioteca.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -245,6 +252,7 @@
     </ClInclude>
     <ClInclude Include="Libro.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Prestamo.h" />
     <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <ItemGroup>
