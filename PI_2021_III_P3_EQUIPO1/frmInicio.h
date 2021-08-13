@@ -240,6 +240,7 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 		{
 			acceso = true;
 			i = 5;
+
 		}
 		else
 		{
@@ -254,6 +255,7 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 		//this->Visible = false; //Para cerrar la ventana de inicio
 		frmBiblioteca^ biblioteca = gcnew frmBiblioteca;
 		biblioteca->Show(); //abrir la ventana de Biblioteca.
+		biblioteca->lblsaludo->Text = "Bienvenido " + nombre;
 
 	}
 	else

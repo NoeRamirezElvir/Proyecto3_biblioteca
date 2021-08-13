@@ -174,6 +174,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Controls->Add(this->dgvFactura);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmListaFactura";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"frmListaFactura";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvFactura))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();

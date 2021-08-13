@@ -1,7 +1,15 @@
 #pragma once
+#include "Computadora.h"
 #include "frmRegistroComputadoras.h"
-namespace PI2021IIIP3EQUIPO1 {
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
 
+namespace PI2021IIIP3EQUIPO1 {
+	using namespace msclr::interop; /// nuevos using namespace
+	using namespace std; ////
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -42,17 +50,26 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ lblTipo;
 	private: System::Windows::Forms::Label^ lblOs;
 	private: System::Windows::Forms::Label^ lblObservacion;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::TextBox^ textBox6;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::TextBox^ txtId;
+	private: System::Windows::Forms::TextBox^ txtMarca;
+	private: System::Windows::Forms::TextBox^ txtModelo;
+	private: System::Windows::Forms::TextBox^ txtHdd;
+	private: System::Windows::Forms::TextBox^ txtRam;
+	private: System::Windows::Forms::TextBox^ txtObservacion;
+
+
+
+
+
+
+	private: System::Windows::Forms::ComboBox^ cboTipo;
+	private: System::Windows::Forms::ComboBox^ cboOs;
+
+
 	private: System::Windows::Forms::Button^ btnAgregar;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Button^ btnSala;
+	private: System::Windows::Forms::Button^ btnMostar;
+
 	protected:
 
 	protected:
@@ -83,17 +100,17 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblTipo = (gcnew System::Windows::Forms::Label());
 			this->lblOs = (gcnew System::Windows::Forms::Label());
 			this->lblObservacion = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->txtId = (gcnew System::Windows::Forms::TextBox());
+			this->txtMarca = (gcnew System::Windows::Forms::TextBox());
+			this->txtModelo = (gcnew System::Windows::Forms::TextBox());
+			this->txtHdd = (gcnew System::Windows::Forms::TextBox());
+			this->txtRam = (gcnew System::Windows::Forms::TextBox());
+			this->txtObservacion = (gcnew System::Windows::Forms::TextBox());
+			this->cboTipo = (gcnew System::Windows::Forms::ComboBox());
+			this->cboOs = (gcnew System::Windows::Forms::ComboBox());
 			this->btnAgregar = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->btnSala = (gcnew System::Windows::Forms::Button());
+			this->btnMostar = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -185,68 +202,68 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblObservacion->TabIndex = 7;
 			this->lblObservacion->Text = L"Observacion:";
 			// 
-			// textBox1
+			// txtId
 			// 
-			this->textBox1->Location = System::Drawing::Point(214, 39);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(124, 20);
-			this->textBox1->TabIndex = 8;
+			this->txtId->Location = System::Drawing::Point(214, 39);
+			this->txtId->Name = L"txtId";
+			this->txtId->Size = System::Drawing::Size(124, 20);
+			this->txtId->TabIndex = 8;
 			// 
-			// textBox2
+			// txtMarca
 			// 
-			this->textBox2->Location = System::Drawing::Point(214, 68);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(124, 20);
-			this->textBox2->TabIndex = 9;
+			this->txtMarca->Location = System::Drawing::Point(214, 68);
+			this->txtMarca->Name = L"txtMarca";
+			this->txtMarca->Size = System::Drawing::Size(124, 20);
+			this->txtMarca->TabIndex = 9;
 			// 
-			// textBox3
+			// txtModelo
 			// 
-			this->textBox3->Location = System::Drawing::Point(214, 98);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(124, 20);
-			this->textBox3->TabIndex = 10;
+			this->txtModelo->Location = System::Drawing::Point(214, 98);
+			this->txtModelo->Name = L"txtModelo";
+			this->txtModelo->Size = System::Drawing::Size(124, 20);
+			this->txtModelo->TabIndex = 10;
 			// 
-			// textBox4
+			// txtHdd
 			// 
-			this->textBox4->Location = System::Drawing::Point(214, 129);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(124, 20);
-			this->textBox4->TabIndex = 11;
+			this->txtHdd->Location = System::Drawing::Point(214, 129);
+			this->txtHdd->Name = L"txtHdd";
+			this->txtHdd->Size = System::Drawing::Size(124, 20);
+			this->txtHdd->TabIndex = 11;
 			// 
-			// textBox5
+			// txtRam
 			// 
-			this->textBox5->Location = System::Drawing::Point(214, 159);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(124, 20);
-			this->textBox5->TabIndex = 12;
+			this->txtRam->Location = System::Drawing::Point(214, 159);
+			this->txtRam->Name = L"txtRam";
+			this->txtRam->Size = System::Drawing::Size(124, 20);
+			this->txtRam->TabIndex = 12;
 			// 
-			// textBox6
+			// txtObservacion
 			// 
-			this->textBox6->Location = System::Drawing::Point(214, 249);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(124, 20);
-			this->textBox6->TabIndex = 13;
+			this->txtObservacion->Location = System::Drawing::Point(214, 249);
+			this->txtObservacion->Name = L"txtObservacion";
+			this->txtObservacion->Size = System::Drawing::Size(124, 20);
+			this->txtObservacion->TabIndex = 13;
 			// 
-			// comboBox1
+			// cboTipo
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Desktop", L"Laptop" });
-			this->comboBox1->Location = System::Drawing::Point(214, 185);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(124, 21);
-			this->comboBox1->TabIndex = 14;
+			this->cboTipo->FormattingEnabled = true;
+			this->cboTipo->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Desktop", L"Laptop" });
+			this->cboTipo->Location = System::Drawing::Point(214, 185);
+			this->cboTipo->Name = L"cboTipo";
+			this->cboTipo->Size = System::Drawing::Size(124, 21);
+			this->cboTipo->TabIndex = 14;
 			// 
-			// comboBox2
+			// cboOs
 			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+			this->cboOs->FormattingEnabled = true;
+			this->cboOs->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
 				L"Windows 7", L"Windows 8", L"Windows 8.1", L"Windows 10",
 					L"Windows 11"
 			});
-			this->comboBox2->Location = System::Drawing::Point(214, 222);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(124, 21);
-			this->comboBox2->TabIndex = 15;
+			this->cboOs->Location = System::Drawing::Point(214, 222);
+			this->cboOs->Name = L"cboOs";
+			this->cboOs->Size = System::Drawing::Size(124, 21);
+			this->cboOs->TabIndex = 15;
 			// 
 			// btnAgregar
 			// 
@@ -258,6 +275,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnAgregar->TabIndex = 16;
 			this->btnAgregar->Text = L"Agregar";
 			this->btnAgregar->UseVisualStyleBackColor = true;
+			this->btnAgregar->Click += gcnew System::EventHandler(this, &frmComputadora::btnAgregar_Click);
 			// 
 			// pictureBox1
 			// 
@@ -268,17 +286,17 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->pictureBox1->TabIndex = 17;
 			this->pictureBox1->TabStop = false;
 			// 
-			// btnSala
+			// btnMostar
 			// 
-			this->btnSala->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnMostar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSala->Location = System::Drawing::Point(375, 293);
-			this->btnSala->Name = L"btnSala";
-			this->btnSala->Size = System::Drawing::Size(109, 42);
-			this->btnSala->TabIndex = 18;
-			this->btnSala->Text = L"Mostrar Computadoras";
-			this->btnSala->UseVisualStyleBackColor = true;
-			this->btnSala->Click += gcnew System::EventHandler(this, &frmComputadora::btnSala_Click);
+			this->btnMostar->Location = System::Drawing::Point(375, 293);
+			this->btnMostar->Name = L"btnMostar";
+			this->btnMostar->Size = System::Drawing::Size(109, 42);
+			this->btnMostar->TabIndex = 18;
+			this->btnMostar->Text = L"Mostrar Computadoras";
+			this->btnMostar->UseVisualStyleBackColor = true;
+			this->btnMostar->Click += gcnew System::EventHandler(this, &frmComputadora::btnMostar_Click);
 			// 
 			// frmComputadora
 			// 
@@ -286,17 +304,17 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkCyan;
 			this->ClientSize = System::Drawing::Size(623, 380);
-			this->Controls->Add(this->btnSala);
+			this->Controls->Add(this->btnMostar);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnAgregar);
-			this->Controls->Add(this->comboBox2);
-			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->cboOs);
+			this->Controls->Add(this->cboTipo);
+			this->Controls->Add(this->txtObservacion);
+			this->Controls->Add(this->txtRam);
+			this->Controls->Add(this->txtHdd);
+			this->Controls->Add(this->txtModelo);
+			this->Controls->Add(this->txtMarca);
+			this->Controls->Add(this->txtId);
 			this->Controls->Add(this->lblObservacion);
 			this->Controls->Add(this->lblOs);
 			this->Controls->Add(this->lblTipo);
@@ -309,6 +327,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmComputadora";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Computadora";
+			this->Load += gcnew System::EventHandler(this, &frmComputadora::frmComputadora_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -316,9 +335,95 @@ namespace PI2021IIIP3EQUIPO1 {
 		}
 #pragma endregion
 	
-private: System::Void btnSala_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmRegistroComputadoras^ formulario = gcnew frmRegistroComputadoras;
-	formulario->Show();
+private: System::Void frmComputadora_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoComputadora("Computadoras.dat", ios::binary | ios::app | ios::out);
+
+	if (!archivoComputadora)
+	{
+		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	txtId->Text = "";
+	txtMarca->Text = "";
+	txtModelo->Text = "";
+	txtHdd->Text = "";
+	txtRam->Text = "";
+	cboTipo->Text = "";
+	cboOs->Text = "";
+	txtObservacion->Text = "";
+}
+private: System::Void btnAgregar_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoComputadoraSalida("Computadoras.dat", ios::binary | ios::app | ios::out);
+	if (!archivoComputadoraSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	//variables String del sistema
+	System::String^ marca = txtMarca->Text;
+	System::String^ modelo = txtModelo->Text;
+	System::String^ disco = txtHdd->Text;
+	System::String^ ram = txtRam->Text;
+	System::String^ tipo = cboTipo->SelectedItem->ToString();
+	System::String^ oS = cboOs->SelectedItem->ToString();
+	System::String^ observacion = txtObservacion->Text;
+	int ID = Convert::ToInt32(txtId->Text);
+	
+	//convertir los string
+	std::string marcaC = marshal_as<std::string>(marca);
+	std::string modeloC = marshal_as<std::string>(modelo);
+	std::string discoC = marshal_as<std::string>(disco);
+	std::string ramC = marshal_as<std::string>(ram);
+	std::string tipoC = marshal_as<std::string>(tipo);
+	std::string oSC = marshal_as<std::string>(oS);
+	std::string obserC = marshal_as<std::string>(observacion);
+	Computadora computadora(ID, marcaC, modeloC, discoC, ramC, tipoC, oSC, obserC);
+	
+	archivoComputadoraSalida.write(reinterpret_cast<const char*>(&computadora), sizeof(Computadora));
+	archivoComputadoraSalida.close();
+
+	////////////////////////////////////
+	txtId->Text = "";
+	txtMarca->Text = "";
+	txtModelo->Text = "";
+	txtHdd->Text = "";
+	txtRam->Text = "";
+	cboTipo->Text = "";
+	cboOs->Text = "";
+	txtObservacion->Text = "";
+	////////////////////////////////////
+}
+private: System::Void btnMostar_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	frmRegistroComputadoras^ listaComputadora = gcnew frmRegistroComputadoras;
+	listaComputadora->Show();
+
+	ifstream archivoComputadoraEntrada;
+
+	archivoComputadoraEntrada.open("Computadoras.dat", ios::binary | ios::app | ios::in);
+	if (!archivoComputadoraEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	Computadora leerComputadora;
+
+	archivoComputadoraEntrada.read(reinterpret_cast<char*>(&leerComputadora), sizeof(Computadora));
+	while (!archivoComputadoraEntrada.eof())
+	{
+		std::string id = to_string(leerComputadora.obtenerIDcomputadora());
+		System::String^ ID1 = marshal_as<System::String^>(id);
+
+		System::String^ marca1 = marshal_as<System::String^>(leerComputadora.obtenerMarca());
+		System::String^ modelo1 = marshal_as<System::String^>(leerComputadora.obtenerModelo());
+		System::String^ hdd1 = marshal_as<System::String^>(leerComputadora.obtenerHdd());
+		System::String^ ram1 = marshal_as<System::String^>(leerComputadora.obtenerRam());
+		System::String^ tipo1 = marshal_as<System::String^>(leerComputadora.obtenerTipo());
+		System::String^ oS1 = marshal_as<System::String^>(leerComputadora.obtenerOS());
+		System::String^ observacion1 = marshal_as<System::String^>(leerComputadora.obtenerObservacion());
+		listaComputadora->dvgListaComputadoras->Rows->Add(ID1, marca1 , modelo1, hdd1, ram1, tipo1, oS1, observacion1);
+		archivoComputadoraEntrada.read(reinterpret_cast<char*>(&leerComputadora), sizeof(Computadora));
+	}
 }
 };
 }
