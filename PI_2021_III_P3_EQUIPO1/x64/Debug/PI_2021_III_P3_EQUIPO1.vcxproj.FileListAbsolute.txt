@@ -61,7 +61,6 @@ C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmProveedores.resources
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmRecibidos.resources
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Biblioteca-rama-paola\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSalaLectura.resources
-C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxprojAssemblyReference.cache
 C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmBiblioteca.resources
 C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmCliente.resources
 C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmComputadora.resources
@@ -121,3 +120,4 @@ C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmSucursal.resources
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmVisitasSalaComputo.resources
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.AssemblyReference.cache

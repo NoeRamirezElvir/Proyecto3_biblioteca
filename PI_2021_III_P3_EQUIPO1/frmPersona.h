@@ -516,7 +516,9 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Void btnMostrarPersona_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmListaPersona^ listaPersona = gcnew frmListaPersona;
 		listaPersona->Show();
+
 		ifstream archivoPersonaEntrada;
+
 		archivoPersonaEntrada.open("Personas.dat", ios::binary |ios::app | ios::in);
 		if (!archivoPersonaEntrada)
 		{
@@ -532,12 +534,15 @@ namespace PI2021IIIP3EQUIPO1 {
 			System::String^ identificacion1 = marshal_as<System::String^>(leerPersona.obtenerIdentificacion());
 			System::String^ tipo1 = marshal_as<System::String^>(leerPersona.obtenerTipoPersona());
 			System::String^ genero1 = marshal_as<System::String^>(leerPersona.obtenerGenero());
+
 			std::string id = to_string(leerPersona.obtenerID());
 			std::string ed = to_string(leerPersona.obtenerEdad());
 			std::string tel = to_string(leerPersona.obtenerTelefono());
+
 			System::String^ ID1 = marshal_as<System::String^>(id);
 			System::String^ edad1 = marshal_as<System::String^>(ed);
 			System::String^ telefono1 = marshal_as<System::String^>(tel);
+
 			listaPersona->dgvListaPersona->Rows->Add(ID1, nombre1, apellido1, genero1, edad1, identificacion1, telefono1, tipo1);
 			archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
 		}

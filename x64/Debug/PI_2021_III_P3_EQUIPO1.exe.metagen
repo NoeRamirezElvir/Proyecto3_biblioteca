@@ -52,6 +52,8 @@ Class PI2021IIIP3EQUIPO1.frmCliente: AutoLayout, AnsiClass, Class, Public, Befor
 Class PI2021IIIP3EQUIPO1.frmRegistroComputadoras: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dvgListaComputadoras : Public
 Class PI2021IIIP3EQUIPO1.frmComputadora: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -137,6 +139,8 @@ Class PI2021IIIP3EQUIPO1.frmSalaLectura: AutoLayout, AnsiClass, Class, Public, B
 Class PI2021IIIP3EQUIPO1.frmBiblioteca: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Label lblsaludo : Public
 Class PI2021IIIP3EQUIPO1.frmInicio: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

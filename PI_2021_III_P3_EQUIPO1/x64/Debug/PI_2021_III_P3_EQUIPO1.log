@@ -1,15 +1,1 @@
-﻿  Empleado.cpp
-  Factura.cpp
-  frmInicio.cpp
-C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmInicio.cpp(5,33): warning C4829: Parámetros posiblemente incorrectos para la función main. Utilice 'int main(Platform::Array<Platform::String^>^ argv)'
-  Generando código...
-  Cliente.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-frmPrestamo.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmPrestamo.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-frmListaPrestamo.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmListaPrestamo.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-frmListaFactura.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmListaFactura.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-frmListaEmpleado.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmListaEmpleado.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-frmListaDaños.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmListaDaños.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-frmFactura.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmFactura.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-frmEmpleado.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmEmpleado.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-frmDaño.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'frmDaño.obj' o en 'C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  PI_2021_III_P3_EQUIPO1.vcxproj -> C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\x64\Debug\PI_2021_III_P3_EQUIPO1.exe
+﻿  PI_2021_III_P3_EQUIPO1.vcxproj -> C:\Users\Usuario\Source\Repos\Proyecto_Biblioteca\x64\Debug\PI_2021_III_P3_EQUIPO1.exe

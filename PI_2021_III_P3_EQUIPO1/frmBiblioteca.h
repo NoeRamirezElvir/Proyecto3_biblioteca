@@ -70,6 +70,11 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Button^ btnProveedores;
 	private: System::Windows::Forms::Button^ btnSalaLectura;
 	private: System::Windows::Forms::Button^ btnInventario;
+	private: System::Windows::Forms::Button^ btnSalir;
+	public: System::Windows::Forms::Label^ lblsaludo;
+	private:
+
+
 
 
 
@@ -105,6 +110,8 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnProveedores = (gcnew System::Windows::Forms::Button());
 			this->btnSalaLectura = (gcnew System::Windows::Forms::Button());
 			this->btnInventario = (gcnew System::Windows::Forms::Button());
+			this->btnSalir = (gcnew System::Windows::Forms::Button());
+			this->lblsaludo = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// btnPersona
@@ -377,6 +384,37 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnInventario->UseVisualStyleBackColor = false;
 			this->btnInventario->Click += gcnew System::EventHandler(this, &frmBiblioteca::button3_Click);
 			// 
+			// btnSalir
+			// 
+			this->btnSalir->BackColor = System::Drawing::Color::Sienna;
+			this->btnSalir->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->btnSalir->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSalir->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSalir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnSalir.Image")));
+			this->btnSalir->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btnSalir->Location = System::Drawing::Point(878, 528);
+			this->btnSalir->Name = L"btnSalir";
+			this->btnSalir->Size = System::Drawing::Size(80, 41);
+			this->btnSalir->TabIndex = 18;
+			this->btnSalir->Text = L"Salir";
+			this->btnSalir->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->btnSalir->UseVisualStyleBackColor = false;
+			this->btnSalir->Click += gcnew System::EventHandler(this, &frmBiblioteca::btnSalir_Click);
+			// 
+			// lblsaludo
+			// 
+			this->lblsaludo->AutoSize = true;
+			this->lblsaludo->BackColor = System::Drawing::Color::Transparent;
+			this->lblsaludo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblsaludo->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->lblsaludo->Location = System::Drawing::Point(614, 24);
+			this->lblsaludo->Name = L"lblsaludo";
+			this->lblsaludo->Size = System::Drawing::Size(0, 24);
+			this->lblsaludo->TabIndex = 19;
+			// 
 			// frmBiblioteca
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -385,6 +423,8 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(989, 594);
+			this->Controls->Add(this->lblsaludo);
+			this->Controls->Add(this->btnSalir);
 			this->Controls->Add(this->btnInventario);
 			this->Controls->Add(this->btnSalaLectura);
 			this->Controls->Add(this->btnProveedores);
@@ -476,6 +516,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmRecibidos^ recibidos = gcnew frmRecibidos;
 	recibidos->Show();
+}
+private: System::Void btnSalir_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
 }
 };
 }
