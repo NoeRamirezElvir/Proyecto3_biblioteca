@@ -17,6 +17,7 @@
   PI2021IIIP3EQUIPO1.frmListaPersona.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmListaPrestamo.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmListaProveedores.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmListaSalaLectura.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmPersona.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmPrestamo.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmProveedores.resources - Embedded, ContainedInManifestFile, 
@@ -124,15 +125,24 @@ Class PI2021IIIP3EQUIPO1.frmPrestamo: AutoLayout, AnsiClass, Class, Public, Befo
 Class PI2021IIIP3EQUIPO1.frmListaProveedores: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvProveedores : Public
 Class PI2021IIIP3EQUIPO1.frmProveedores: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmInventario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvInventario : Public
 Class PI2021IIIP3EQUIPO1.frmRecibidos: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmListaSalaLectura: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvListaSalaL : Public
 Class PI2021IIIP3EQUIPO1.frmSalaLectura: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

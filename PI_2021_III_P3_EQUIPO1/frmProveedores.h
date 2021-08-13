@@ -1,8 +1,15 @@
 #pragma once
 #include "frmListaProveedores.h"
+#include "Proveedor.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
 
 namespace PI2021IIIP3EQUIPO1 {
-
+	using namespace msclr::interop;
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -110,6 +117,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->button1->Text = L"Registrar";
 			this->button1->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &frmProveedores::button1_Click);
 			// 
 			// button2
 			// 
@@ -326,6 +334,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmProveedores";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Registro de proveedores";
+			this->Load += gcnew System::EventHandler(this, &frmProveedores::frmProveedores_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -335,6 +344,70 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmListaProveedores^ listaProveedores = gcnew frmListaProveedores;
 		listaProveedores->Show();
+		ifstream archivoProveedoresEntrada("Proveedores.dat", ios::binary | ios::app | ios::in);
+		if (!archivoProveedoresEntrada)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+		Proveedor leerProveedor;
+		archivoProveedoresEntrada.read(reinterpret_cast<char*>(&leerProveedor), sizeof(Proveedor));
+		while (!archivoProveedoresEntrada.eof())
+		{
+			System::String^ nombre = marshal_as<System::String^>(leerProveedor.obtenerNombre());
+			System::String^ fecha = marshal_as<System::String^>(leerProveedor.obtenerFecha());
+			System::String^ categoria = marshal_as<System::String^>(leerProveedor.obtenerCategoria());
+			System::String^ RTN = marshal_as<System::String^>(leerProveedor.obtenerRtn());
+			System::String^ direccion = marshal_as<System::String^>(leerProveedor.obtenerDireccion());
+			System::String^ ciudad = marshal_as<System::String^>(leerProveedor.obtenerCiudad());
+			std::string id = to_string(leerProveedor.obtenerID());
+			std::string tel = to_string(leerProveedor.obtenerTelefono());
+			System::String^ ID = marshal_as<System::String^>(id);
+			System::String^ telefono = marshal_as<System::String^>(tel);
+			listaProveedores->dgvProveedores->Rows->Add(ID, nombre, telefono, RTN, fecha, ciudad, direccion);
+			archivoProveedoresEntrada.read(reinterpret_cast<char*>(&leerProveedor), sizeof(Proveedor));
+		}
 	}
+private: System::Void frmProveedores_Load(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoProveedores("Proveedores.dat", ios::binary | ios::app | ios::out);
+	if (!archivoProveedores)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream archivoProveedoresSalida("Proveedores.dat", ios::binary | ios::app | ios::out);
+	if (!archivoProveedoresSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	int id = Convert::ToInt32(txtIDProveedor->Text);
+	int tel = Convert::ToInt32(txtTelefono->Text);
+	System::String^ nom = txtNombre->Text;
+	System::String^ fec = txtFecha->Text;
+	System::String^ cat = txtCategoria->Text;
+	System::String^ rtn = txtRTN->Text;
+	System::String^ dir = txtDireccion->Text;
+	System::String^ ciud = txtCiudad->Text;
+	std::string nombre = marshal_as<std::string>(nom);
+	std::string fecha = marshal_as<std::string>(fec);
+	std::string categoria = marshal_as<std::string>(cat);
+	std::string RTN = marshal_as<std::string>(rtn);
+	std::string direccion = marshal_as<std::string>(dir);
+	std::string ciudad = marshal_as<std::string>(ciud);
+	Proveedor proveedor(id, tel, nombre, RTN, fecha, direccion, ciudad, categoria);
+	archivoProveedoresSalida.write(reinterpret_cast<const char*>(&proveedor), sizeof(Proveedor));
+	archivoProveedoresSalida.close();
+	txtCategoria->Text = "";
+	txtCiudad->Text = "";
+	txtDireccion->Text = "";
+	txtFecha->Text = "";
+	txtIDProveedor->Text = "";
+	txtNombre->Text = "";
+	txtRTN->Text = "";
+	txtTelefono->Text = "";
+}
 };
 }

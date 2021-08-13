@@ -34,16 +34,27 @@ namespace PI2021IIIP3EQUIPO1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	public: System::Windows::Forms::DataGridView^ dgvProveedores;
 	protected:
+
+	protected:
+
+	protected:
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ lblProveedores;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colIDProveedores;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colNombreProveedor;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colTelefonoProveedores;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colRTN;
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colFechaProveedor;
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colCiudad;
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^ colDireccionProveedor;
-	private: System::Windows::Forms::Label^ lblProveedores;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colFecha;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colCiudad;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colDireccion;
 
 	private:
 		/// <summary>
@@ -59,31 +70,43 @@ namespace PI2021IIIP3EQUIPO1 {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmListaProveedores::typeid));
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvProveedores = (gcnew System::Windows::Forms::DataGridView());
+			this->lblProveedores = (gcnew System::Windows::Forms::Label());
 			this->colIDProveedores = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colNombreProveedor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colTelefonoProveedores = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colRTN = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->colFechaProveedor = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
-			this->colCiudad = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
-			this->colDireccionProveedor = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
-			this->lblProveedores = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->colFecha = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->colCiudad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->colDireccion = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProveedores))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// dataGridView1
+			// dgvProveedores
 			// 
-			this->dataGridView1->BackgroundColor = System::Drawing::Color::PaleTurquoise;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+			this->dgvProveedores->BackgroundColor = System::Drawing::Color::PaleTurquoise;
+			this->dgvProveedores->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvProveedores->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->colIDProveedores,
-					this->colNombreProveedor, this->colTelefonoProveedores, this->colRTN, this->colFechaProveedor, this->colCiudad, this->colDireccionProveedor
+					this->colNombreProveedor, this->colTelefonoProveedores, this->colRTN, this->colFecha, this->colCiudad, this->colDireccion
 			});
-			this->dataGridView1->GridColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->dataGridView1->Location = System::Drawing::Point(8, 98);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(743, 450);
-			this->dataGridView1->TabIndex = 0;
+			this->dgvProveedores->GridColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->dgvProveedores->Location = System::Drawing::Point(8, 98);
+			this->dgvProveedores->Name = L"dgvProveedores";
+			this->dgvProveedores->Size = System::Drawing::Size(743, 450);
+			this->dgvProveedores->TabIndex = 0;
+			// 
+			// lblProveedores
+			// 
+			this->lblProveedores->AutoSize = true;
+			this->lblProveedores->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblProveedores->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->lblProveedores->Location = System::Drawing::Point(265, 23);
+			this->lblProveedores->Name = L"lblProveedores";
+			this->lblProveedores->Size = System::Drawing::Size(207, 37);
+			this->lblProveedores->TabIndex = 1;
+			this->lblProveedores->Text = L"Proveedores";
 			// 
 			// colIDProveedores
 			// 
@@ -105,32 +128,20 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->colRTN->HeaderText = L"RTN";
 			this->colRTN->Name = L"colRTN";
 			// 
-			// colFechaProveedor
+			// colFecha
 			// 
-			this->colFechaProveedor->HeaderText = L"Fecha";
-			this->colFechaProveedor->Name = L"colFechaProveedor";
+			this->colFecha->HeaderText = L"Fecha";
+			this->colFecha->Name = L"colFecha";
 			// 
 			// colCiudad
 			// 
 			this->colCiudad->HeaderText = L"Ciudad";
 			this->colCiudad->Name = L"colCiudad";
 			// 
-			// colDireccionProveedor
+			// colDireccion
 			// 
-			this->colDireccionProveedor->HeaderText = L"Direccion";
-			this->colDireccionProveedor->Name = L"colDireccionProveedor";
-			// 
-			// lblProveedores
-			// 
-			this->lblProveedores->AutoSize = true;
-			this->lblProveedores->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblProveedores->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->lblProveedores->Location = System::Drawing::Point(265, 23);
-			this->lblProveedores->Name = L"lblProveedores";
-			this->lblProveedores->Size = System::Drawing::Size(207, 37);
-			this->lblProveedores->TabIndex = 1;
-			this->lblProveedores->Text = L"Proveedores";
+			this->colDireccion->HeaderText = L"Direccion";
+			this->colDireccion->Name = L"colDireccion";
 			// 
 			// frmListaProveedores
 			// 
@@ -139,12 +150,12 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->BackColor = System::Drawing::Color::SeaGreen;
 			this->ClientSize = System::Drawing::Size(761, 560);
 			this->Controls->Add(this->lblProveedores);
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->dgvProveedores);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmListaProveedores";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Lista de Proveedores";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProveedores))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

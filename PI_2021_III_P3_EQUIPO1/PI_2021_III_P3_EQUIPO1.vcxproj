@@ -148,6 +148,7 @@
     <ClCompile Include="frmListaPersona.cpp" />
     <ClCompile Include="frmListaPrestamo.cpp" />
     <ClCompile Include="frmListaProveedores.cpp" />
+    <ClCompile Include="frmListaSalaLectura.cpp" />
     <ClCompile Include="frmPersona.cpp" />
     <ClCompile Include="frmPrestamo.cpp" />
     <ClCompile Include="frmProveedores.cpp" />
@@ -160,6 +161,9 @@
     <ClCompile Include="Libro.cpp" />
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="Prestamo.cpp" />
+    <ClCompile Include="Proveedor.cpp" />
+    <ClCompile Include="Recibido.cpp" />
+    <ClCompile Include="SalaLectura.cpp" />
     <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +229,9 @@
     <ClInclude Include="frmListaProveedores.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmListaSalaLectura.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmPersona.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -255,6 +262,9 @@
     <ClInclude Include="Libro.h" />
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Prestamo.h" />
+    <ClInclude Include="Proveedor.h" />
+    <ClInclude Include="Recibido.h" />
+    <ClInclude Include="SalaLectura.h" />
     <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaProveedores.resx">
       <DependentUpon>frmListaProveedores.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaSalaLectura.resx">
+      <DependentUpon>frmListaSalaLectura.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersona.resx">
       <DependentUpon>frmPersona.h</DependentUpon>

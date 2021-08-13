@@ -577,16 +577,16 @@ private: System::Void btnRegistrarPersona_Click(System::Object^ sender, System::
 	archivoPersonaSalida.write(reinterpret_cast<const char*>(&persona), sizeof(Persona));
 	archivoPersonaSalida.close();
 	////////////////////////////////////
-	txtPrimerNombre->Text = " ";
-	txtApellidoPaterno->Text = " ";
-	txtCategoriaPersona->Text = " ";
-	txtIdentificacion->Text = " ";
-	txtCategoriaPersona->Text = " ";
-	txtEdad->Text = " ";
-	txtIDPersona->Text = " ";
-	txtTelefonoPersona->Text = " ";
-	cboGeneroPersona->Text = " ";
-	cboTipoPersona->Text = " ";
+	txtPrimerNombre->Text = "";
+	txtApellidoPaterno->Text = "";
+	txtCategoriaPersona->Text = "";
+	txtIdentificacion->Text = "";
+	txtCategoriaPersona->Text = "";
+	txtEdad->Text = "";
+	txtIDPersona->Text = "";
+	txtTelefonoPersona->Text = "";
+	cboGeneroPersona->Text = "";
+	cboTipoPersona->Text = "";
 	////////////////////////////////////
 
 }

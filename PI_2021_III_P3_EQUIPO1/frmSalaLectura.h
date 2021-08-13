@@ -1,7 +1,17 @@
 #pragma once
+#include "frmListaSalaLectura.h"
+#include "Empleado.h"
+#include "SalaLectura.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <msclr/marshal_cppstd.h>
+
 
 namespace PI2021IIIP3EQUIPO1 {
-
+	using namespace msclr::interop;
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -41,17 +51,23 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ lblCapacidad;
 	private: System::Windows::Forms::Label^ lblEmpleadoSalaL;
 	private: System::Windows::Forms::Label^ lblDisponibilidad;
+	private: System::Windows::Forms::TextBox^ txtID;
+	private: System::Windows::Forms::TextBox^ txtCapacidad;
 
 
 
 
 
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
 
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::Button^ button1;
+
+	private: System::Windows::Forms::Button^ btnRegistrar;
+
+
+
 	private: System::Windows::Forms::ComboBox^ cboEncargadoSalaL;
+	private: System::Windows::Forms::ComboBox^ cboDisponibilidad;
+
+	private: System::Windows::Forms::Button^ btnMostrar;
 
 	private:
 		/// <summary>
@@ -73,11 +89,12 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblCapacidad = (gcnew System::Windows::Forms::Label());
 			this->lblEmpleadoSalaL = (gcnew System::Windows::Forms::Label());
 			this->lblDisponibilidad = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->txtID = (gcnew System::Windows::Forms::TextBox());
+			this->txtCapacidad = (gcnew System::Windows::Forms::TextBox());
+			this->btnRegistrar = (gcnew System::Windows::Forms::Button());
 			this->cboEncargadoSalaL = (gcnew System::Windows::Forms::ComboBox());
+			this->cboDisponibilidad = (gcnew System::Windows::Forms::ComboBox());
+			this->btnMostrar = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -146,41 +163,38 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblDisponibilidad->TabIndex = 7;
 			this->lblDisponibilidad->Text = L"Disponibilidad:";
 			// 
-			// textBox1
+			// txtID
 			// 
-			this->textBox1->Location = System::Drawing::Point(147, 301);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(111, 20);
-			this->textBox1->TabIndex = 8;
+			this->txtID->Location = System::Drawing::Point(147, 301);
+			this->txtID->Name = L"txtID";
+			this->txtID->Size = System::Drawing::Size(111, 20);
+			this->txtID->TabIndex = 8;
 			// 
-			// textBox2
+			// txtCapacidad
 			// 
-			this->textBox2->Location = System::Drawing::Point(147, 374);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(111, 20);
-			this->textBox2->TabIndex = 9;
+			this->txtCapacidad->Location = System::Drawing::Point(147, 374);
+			this->txtCapacidad->Name = L"txtCapacidad";
+			this->txtCapacidad->Size = System::Drawing::Size(111, 20);
+			this->txtCapacidad->TabIndex = 9;
 			// 
-			// textBox4
+			// btnRegistrar
 			// 
-			this->textBox4->Location = System::Drawing::Point(370, 374);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(121, 20);
-			this->textBox4->TabIndex = 11;
-			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::Color::LightSeaGreen;
-			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->button1->FlatAppearance->BorderSize = 2;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button1->Location = System::Drawing::Point(326, 422);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(180, 44);
-			this->button1->TabIndex = 12;
-			this->button1->Text = L"Editar informacion";
-			this->button1->UseVisualStyleBackColor = false;
+			this->btnRegistrar->BackColor = System::Drawing::Color::LightSeaGreen;
+			this->btnRegistrar->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+			this->btnRegistrar->FlatAppearance->BorderSize = 2;
+			this->btnRegistrar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnRegistrar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnRegistrar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnRegistrar.Image")));
+			this->btnRegistrar->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btnRegistrar->Location = System::Drawing::Point(277, 434);
+			this->btnRegistrar->Name = L"btnRegistrar";
+			this->btnRegistrar->Size = System::Drawing::Size(114, 44);
+			this->btnRegistrar->TabIndex = 12;
+			this->btnRegistrar->Text = L"Registrar";
+			this->btnRegistrar->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->btnRegistrar->UseVisualStyleBackColor = false;
+			this->btnRegistrar->Click += gcnew System::EventHandler(this, &frmSalaLectura::btnRegistrar_Click);
 			// 
 			// cboEncargadoSalaL
 			// 
@@ -190,17 +204,45 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboEncargadoSalaL->Size = System::Drawing::Size(121, 21);
 			this->cboEncargadoSalaL->TabIndex = 13;
 			// 
+			// cboDisponibilidad
+			// 
+			this->cboDisponibilidad->FormattingEnabled = true;
+			this->cboDisponibilidad->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Disponible", L"Ocupada" });
+			this->cboDisponibilidad->Location = System::Drawing::Point(370, 374);
+			this->cboDisponibilidad->Name = L"cboDisponibilidad";
+			this->cboDisponibilidad->Size = System::Drawing::Size(121, 21);
+			this->cboDisponibilidad->TabIndex = 14;
+			// 
+			// btnMostrar
+			// 
+			this->btnMostrar->BackColor = System::Drawing::Color::LightSeaGreen;
+			this->btnMostrar->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+			this->btnMostrar->FlatAppearance->BorderSize = 2;
+			this->btnMostrar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnMostrar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnMostrar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMostrar.Image")));
+			this->btnMostrar->Location = System::Drawing::Point(416, 434);
+			this->btnMostrar->Name = L"btnMostrar";
+			this->btnMostrar->Size = System::Drawing::Size(107, 44);
+			this->btnMostrar->TabIndex = 15;
+			this->btnMostrar->Text = L"Mostrar";
+			this->btnMostrar->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->btnMostrar->UseVisualStyleBackColor = false;
+			this->btnMostrar->Click += gcnew System::EventHandler(this, &frmSalaLectura::btnMostrar_Click);
+			// 
 			// frmSalaLectura
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkSeaGreen;
 			this->ClientSize = System::Drawing::Size(590, 490);
+			this->Controls->Add(this->btnMostrar);
+			this->Controls->Add(this->cboDisponibilidad);
 			this->Controls->Add(this->cboEncargadoSalaL);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->btnRegistrar);
+			this->Controls->Add(this->txtCapacidad);
+			this->Controls->Add(this->txtID);
 			this->Controls->Add(this->lblDisponibilidad);
 			this->Controls->Add(this->lblEmpleadoSalaL);
 			this->Controls->Add(this->lblCapacidad);
@@ -211,11 +253,80 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Name = L"frmSalaLectura";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Sala De Lectura";
+			this->Load += gcnew System::EventHandler(this, &frmSalaLectura::frmSalaLectura_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void frmSalaLectura_Load(System::Object^ sender, System::EventArgs^ e) {
+		ofstream archivoSalaLectura("Salas de lectura.dat", ios::binary | ios::app | ios::out);
+		if (!archivoSalaLectura)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+		ifstream empleado("Empleados.dat", ios::binary | ios::app | ios::in);
+		if (!empleado)
+		{
+			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+		Empleado empleadoNom;
+		empleado.read(reinterpret_cast<char*>(&empleadoNom), sizeof(Empleado));
+		while (!empleado.eof())
+		{
+			std::string nomEmpleado = empleadoNom.obtenerPrimerNombre();
+			System::String^ nombreEmpleado = marshal_as<System::String^>(nomEmpleado);
+			cboEncargadoSalaL->Items->Add(nombreEmpleado);
+			empleado.read(reinterpret_cast<char*>(&empleadoNom), sizeof(Empleado));
+		}
+	}
+private: System::Void btnRegistrar_Click(System::Object^ sender, System::EventArgs^ e) {
+	ofstream SalaLecturaSalida("Salas de lectura.dat", ios::binary | ios::app | ios::out);
+	if (!SalaLecturaSalida)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	int ID = Convert::ToInt32(txtID->Text);
+	int capacidad = Convert::ToInt32(txtCapacidad->Text);
+	System::String^ enca =cboEncargadoSalaL->SelectedItem->ToString();
+	System::String^ disp = cboDisponibilidad->SelectedItem->ToString();
+	std::string encargado = marshal_as<std::string>(enca);
+	std::string disponibilidad = marshal_as<std::string>(disp);
+	SalaLectura sala(ID,capacidad,encargado,disponibilidad);
+	SalaLecturaSalida.write(reinterpret_cast<const char*>(&sala), sizeof(SalaLectura));
+	SalaLecturaSalida.close();
+	txtCapacidad->Text = "";
+	txtID->Text = "";
+	cboDisponibilidad->Text = "";
+	cboEncargadoSalaL->Text = "";
+
+}
+private: System::Void btnMostrar_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmListaSalaLectura^ lista = gcnew frmListaSalaLectura;
+	lista->Show();
+	ifstream SalaLecturaEntrada("Salas de lectura.dat", ios::binary | ios::app | ios::in);
+	if (!SalaLecturaEntrada)
+	{
+		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->Close();
+	}
+	SalaLectura leerSala;
+	SalaLecturaEntrada.read(reinterpret_cast<char*>(&leerSala), sizeof(SalaLectura));
+	while (!SalaLecturaEntrada.eof())
+	{
+		System::String^ encargado = marshal_as<System::String^>(leerSala.obtenerEncargado());
+		System::String^ disponibilidad = marshal_as<System::String^>(leerSala.obtenerDisponibilidad());
+		std::string id = to_string(leerSala.obtenerID());
+		std::string cap = to_string(leerSala.obtenerCapacidad());
+		System::String^ ID = marshal_as<System::String^>(id);
+		System::String^ capacidad = marshal_as<System::String^>(cap);
+		lista->dgvListaSalaL->Rows->Add(ID, encargado, capacidad, disponibilidad);
+		SalaLecturaEntrada.read(reinterpret_cast<char*>(&leerSala), sizeof(SalaLectura));
+	}
+}
+};
 }
