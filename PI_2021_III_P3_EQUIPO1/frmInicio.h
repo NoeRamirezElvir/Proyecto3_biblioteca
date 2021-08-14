@@ -3,6 +3,7 @@
 #include "Usuario.h"
 #include <string>
 #include <msclr/marshal_cppstd.h>
+#include "frmInicio.h"
 
 using namespace msclr::interop;
 
@@ -255,14 +256,14 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 		//this->Visible = false; //Para cerrar la ventana de inicio
 		frmBiblioteca^ biblioteca = gcnew frmBiblioteca;
 		biblioteca->Show(); //abrir la ventana de Biblioteca.
-		biblioteca->lblsaludo->Text = "Bienvenido " + nombre;
-
+		frmInicio^ formulario = gcnew frmInicio;
+		formulario->Hide();
+		biblioteca->lblsaludo->Text = "Bienvenido(a) " + nombre;
 	}
 	else
 	{
 		MessageBox::Show("Nombre de usuario o contraseña incorrectos", "Error en el inicio de sesion", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }
-
 };
 }

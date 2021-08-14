@@ -122,3 +122,5 @@ C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.GenerateResource.cache
 C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI_2021_III_P3_EQUIPO1.vcxproj.AssemblyReference.cache
 C:\Users\elvir\Desktop\Biblioteca-rama-paola\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaSalaLectura.resources
+C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaSalaLectura.resources
+C:\Users\Usuario\source\repos\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\x64\Debug\PI2021IIIP3EQUIPO1.frmListaSucursales.resources

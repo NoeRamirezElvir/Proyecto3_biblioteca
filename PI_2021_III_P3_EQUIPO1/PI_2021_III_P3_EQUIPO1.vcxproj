@@ -126,6 +126,7 @@
     <ClCompile Include="Computadora.cpp" />
     <ClCompile Include="Daño.cpp" />
     <ClCompile Include="Empleado.cpp" />
+    <ClCompile Include="Estante.cpp" />
     <ClCompile Include="Factura.cpp" />
     <ClCompile Include="frmBiblioteca.cpp" />
     <ClCompile Include="frmCliente.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="frmListaPrestamo.cpp" />
     <ClCompile Include="frmListaProveedores.cpp" />
     <ClCompile Include="frmListaSalaLectura.cpp" />
+    <ClCompile Include="frmListaSucursales.cpp" />
     <ClCompile Include="frmPersona.cpp" />
     <ClCompile Include="frmPrestamo.cpp" />
     <ClCompile Include="frmProveedores.cpp" />
@@ -163,7 +165,9 @@
     <ClCompile Include="Prestamo.cpp" />
     <ClCompile Include="Proveedor.cpp" />
     <ClCompile Include="Recibido.cpp" />
+    <ClCompile Include="SalaComputo.cpp" />
     <ClCompile Include="SalaLectura.cpp" />
+    <ClCompile Include="Sucursal.cpp" />
     <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +175,7 @@
     <ClInclude Include="Computadora.h" />
     <ClInclude Include="Daño.h" />
     <ClInclude Include="Empleado.h" />
+    <ClInclude Include="Estante.h" />
     <ClInclude Include="Factura.h" />
     <ClInclude Include="frmBiblioteca.h">
       <FileType>CppForm</FileType>
@@ -232,6 +237,9 @@
     <ClInclude Include="frmListaSalaLectura.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmListaSucursales.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmPersona.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -264,7 +272,9 @@
     <ClInclude Include="Prestamo.h" />
     <ClInclude Include="Proveedor.h" />
     <ClInclude Include="Recibido.h" />
+    <ClInclude Include="SalaComputo.h" />
     <ClInclude Include="SalaLectura.h" />
+    <ClInclude Include="Sucursal.h" />
     <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaSalaLectura.resx">
       <DependentUpon>frmListaSalaLectura.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaSucursales.resx">
+      <DependentUpon>frmListaSucursales.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersona.resx">
       <DependentUpon>frmPersona.h</DependentUpon>
