@@ -18,6 +18,7 @@
   PI2021IIIP3EQUIPO1.frmListaPrestamo.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmListaProveedores.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmListaSalaLectura.resources - Embedded, ContainedInManifestFile, 
+  PI2021IIIP3EQUIPO1.frmListaSucursales.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmPersona.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmPrestamo.resources - Embedded, ContainedInManifestFile, 
   PI2021IIIP3EQUIPO1.frmProveedores.resources - Embedded, ContainedInManifestFile, 
@@ -78,6 +79,8 @@ Class PI2021IIIP3EQUIPO1.frmEmpleado: AutoLayout, AnsiClass, Class, Public, Befo
 Class PI2021IIIP3EQUIPO1.frmLibrosEstante: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvListaEstantes : Public
 Class PI2021IIIP3EQUIPO1.frmEstante: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -105,12 +108,19 @@ Class PI2021IIIP3EQUIPO1.frmListaLibros: AutoLayout, AnsiClass, Class, Public, B
 Class PI2021IIIP3EQUIPO1.frmLibro: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class PI2021IIIP3EQUIPO1.frmListaSucursales: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvListaSucursal : Public
 Class PI2021IIIP3EQUIPO1.frmSucursal: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PI2021IIIP3EQUIPO1.frmVisitasSalaComputo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView dgvSalaComputo : Public
 Class PI2021IIIP3EQUIPO1.frmSalaComputo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

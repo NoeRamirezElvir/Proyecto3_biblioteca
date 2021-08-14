@@ -14,9 +14,10 @@
 #include "frmRecibidos.h"
 #include "frmSalaLectura.h"
 
-
 namespace PI2021IIIP3EQUIPO1 {
-
+	using namespace System;
+	using namespace System::Drawing;
+	using namespace System::Windows::Forms;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -518,7 +519,12 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	recibidos->Show();
 }
 private: System::Void btnSalir_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
+	System::Windows::Forms::DialogResult resultado;
+	resultado = MessageBox::Show("Seguro que desea salir? ", "Salir", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+	if (resultado== System::Windows::Forms::DialogResult::Yes)
+	{
+		Application::Exit();
+	}
 }
 };
 }
