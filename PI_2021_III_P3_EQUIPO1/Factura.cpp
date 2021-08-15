@@ -8,11 +8,11 @@ Factura::Factura() {
 
 }
 Factura::Factura(int factura_id, int cliente_id, string cliente, string membresia, string empleado_n,
-	 string prestamo) {
-	establecerFacturaID(factura_id), establecerPrimerNombre(cliente), 
+	string prestamo, string tipo) {
+	establecerFacturaID(factura_id), establecerPrimerNombre(cliente),
 		establecerIDcliente(cliente_id), establecerMembresia(membresia),
-		establecerEmpleadoNombre(empleado_n), 
-		establecerPrestamo(prestamo);
+		establecerEmpleadoNombre(empleado_n),
+		establecerPrestamo(prestamo), establecerDaño(tipo); 
 }
 void Factura::establecerFacturaID(int factura_id) {
 	if (factura_id > 0)
@@ -34,7 +34,7 @@ void Factura::establecerEmpleadoNombre(string empleado_n) {
 	empleadoNombre[longitud] = '\0';
 }
 string Factura::obtenerEmpleadoNombre() const {
-	return empleadoNombre; 
+	return empleadoNombre;
 }
 void Factura::establecerEmpleadoApellido(string empleado_a) {
 	int longitud = (int)empleado_a.size();
@@ -76,9 +76,20 @@ void Factura::establecerAño(int year) {
 int Factura::obtenerAño()const {
 	return Año;
 }
+void Factura::establecerDaño(string tipo) {
+	int longitud = (int)tipo.size();
+	if (longitud < 4)
+		cerr << "Tipo de daño invalido" << endl;
+	longitud = (longitud < 30 ? longitud : 29);
+	tipo.copy(damage, longitud);
+	damage[longitud] = '\0';
+}
+string Factura::obtenerDaño() const {
+	return damage;
+}
 void Factura::establecerPrestamo(string prestamo) {
 	int longitud = (int)prestamo.size();
-	if (longitud < 6) 
+	if (longitud < 6)
 		cerr << "Tipo de prestamo invalido" << endl;
 	longitud = (longitud < 30 ? longitud : 29);
 	prestamo.copy(prestamo_, longitud);
@@ -127,13 +138,15 @@ void Factura::registrar() {
 	establecerPrestamo(prestamo);
 }
 
-double Factura::calcularTotal() {
-	totalPagar = (obtenerCostoDia() + obtenerCostoDaño());
-	return totalPagar;
+void Factura::calcularTotal(double costodia, double costodaño, int dia_alquiler) {
+	totalPagar = ((costodia * dia_alquiler) + costodaño);
 }
 
+double Factura::obtenerTotal() const {
+	return totalPagar;
+}
 void Factura::imprimir() {
 	cout << "Factura No " << obtenerFacturaID() << endl
 		<< "Cliente " << obtenerPrimerNombre() << " " << obtenerApellidoPaterno() << endl
-		<< "Total a Pagar es: $" << calcularTotal() << endl;
+		<< "Total a Pagar es: $" << obtenerTotal() << endl;
 }
