@@ -514,99 +514,232 @@ namespace PI2021IIIP3EQUIPO1 {
 		}
 #pragma endregion
 	private: System::Void btnMostrarPersona_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmListaPersona^ listaPersona = gcnew frmListaPersona;
-		listaPersona->Show();
+		try
+		{
+			frmListaPersona^ listaPersona = gcnew frmListaPersona;
+			listaPersona->Show();
+			ifstream archivoPersonaEntrada;
+			archivoPersonaEntrada.open("Personas.dat", ios::binary | ios::app | ios::in);
+			if (!archivoPersonaEntrada)
+			{
+				this->Close();
+				throw gcnew Exception("No se pudo abrir el archivo.");
+			}
+			Persona leerPersona;
+			archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+			while (!archivoPersonaEntrada.eof())
+			{
+				System::String^ nombre1 = marshal_as<System::String^>(leerPersona.obtenerPrimerNombre());
+				System::String^ apellido1 = marshal_as<System::String^>(leerPersona.obtenerApellidoPaterno());
+				System::String^ identificacion1 = marshal_as<System::String^>(leerPersona.obtenerIdentificacion());
+				System::String^ tipo1 = marshal_as<System::String^>(leerPersona.obtenerTipoPersona());
+				System::String^ genero1 = marshal_as<System::String^>(leerPersona.obtenerGenero());
 
-		ifstream archivoPersonaEntrada;
+				std::string id = to_string(leerPersona.obtenerID());
+				std::string ed = to_string(leerPersona.obtenerEdad());
+				std::string tel = to_string(leerPersona.obtenerTelefono());
 
-		archivoPersonaEntrada.open("Personas.dat", ios::binary |ios::app | ios::in);
+				System::String^ ID1 = marshal_as<System::String^>(id);
+				System::String^ edad1 = marshal_as<System::String^>(ed);
+				System::String^ telefono1 = marshal_as<System::String^>(tel);
+
+				listaPersona->dgvListaPersona->Rows->Add(ID1, nombre1, apellido1, genero1, edad1, identificacion1, telefono1, tipo1);
+				archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+			}
+
+		}
+		catch (Exception^ excep)
+		{
+			MessageBox::Show(excep->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}
+private: System::Void btnRegistrarPersona_Click(System::Object^ sender, System::EventArgs^ e) {
+	try
+	{
+		ofstream archivoPersonaSalida("Personas.dat", ios::binary | ios::app | ios::out);
+		if (!archivoPersonaSalida)
+		{
+			throw gcnew Exception("No se pudo abrir el archivo.");
+		}
+		ifstream archivoPersonaEntrada("Personas.dat", ios::binary | ios::app | ios::in);
 		if (!archivoPersonaEntrada)
 		{
-			MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			this->Close();
+			throw gcnew Exception("No se pudo abrir el archivo.");
 		}
+		//ID persona
+		if (txtIDPersona->Text == "")
+		{
+			throw gcnew Exception("Ingrese el ID.");
+		}
+		int ID = Convert::ToInt32(txtIDPersona->Text);
 		Persona leerPersona;
 		archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
 		while (!archivoPersonaEntrada.eof())
 		{
-			System::String^ nombre1 = marshal_as<System::String^>(leerPersona.obtenerPrimerNombre());
-			System::String^ apellido1 = marshal_as<System::String^>(leerPersona.obtenerApellidoPaterno());
-			System::String^ identificacion1 = marshal_as<System::String^>(leerPersona.obtenerIdentificacion());
-			System::String^ tipo1 = marshal_as<System::String^>(leerPersona.obtenerTipoPersona());
-			System::String^ genero1 = marshal_as<System::String^>(leerPersona.obtenerGenero());
+			int id = leerPersona.obtenerID();
+			if (ID != id)
+			{
+				archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
+			}
+			else
+			{
+				throw gcnew Exception("El ID ya esta en uso.");
+			}
 
-			std::string id = to_string(leerPersona.obtenerID());
-			std::string ed = to_string(leerPersona.obtenerEdad());
-			std::string tel = to_string(leerPersona.obtenerTelefono());
-
-			System::String^ ID1 = marshal_as<System::String^>(id);
-			System::String^ edad1 = marshal_as<System::String^>(ed);
-			System::String^ telefono1 = marshal_as<System::String^>(tel);
-
-			listaPersona->dgvListaPersona->Rows->Add(ID1, nombre1, apellido1, genero1, edad1, identificacion1, telefono1, tipo1);
-			archivoPersonaEntrada.read(reinterpret_cast<char*>(&leerPersona), sizeof(Persona));
 		}
-	}
-private: System::Void btnRegistrarPersona_Click(System::Object^ sender, System::EventArgs^ e) {
-	ofstream archivoPersonaSalida("Personas.dat", ios::binary | ios::app | ios::out);
-	if (!archivoPersonaSalida)
-	{
-		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		this->Close();
-	}
-	//variables String del sistema
-	System::String^ nombre = txtPrimerNombre->Text;
-	System::String^ apellido = txtApellidoPaterno->Text;
-	System::String^ genero = cboGeneroPersona->SelectedItem->ToString();
-	System::String^ identificacion = txtIdentificacion->Text;
-	System::String^ categoria = txtCategoriaPersona->Text;
-	System::String^ tipo = cboTipoPersona->Text->ToString();
-	int ID = Convert::ToInt32(txtIDPersona->Text);
-	int telefono = Convert::ToInt32(txtTelefonoPersona->Text);
-	int edad = Convert::ToInt16(txtEdad->Text);
-	//convertir los string
-	std::string nombreP = marshal_as<std::string>(nombre);
-	std::string apellidoP = marshal_as<std::string>(apellido);
-	std::string generoP = marshal_as<std::string>(genero);
-	std::string identificacionP = marshal_as<std::string>(identificacion);
-	std::string categoriaP = marshal_as<std::string>(categoria);
-	std::string tipoP = marshal_as<std::string>(tipo);
-	Persona persona(nombreP, apellidoP, identificacionP, tipoP, generoP, telefono, edad, ID);
-	//Guardar en archivo
-	//archivoPersonaSalida.seekp((ID - 1) * sizeof(Persona));
-	archivoPersonaSalida.write(reinterpret_cast<const char*>(&persona), sizeof(Persona));
-	archivoPersonaSalida.close();
-	////////////////////////////////////
-	txtPrimerNombre->Text = "";
-	txtApellidoPaterno->Text = "";
-	txtCategoriaPersona->Text = "";
-	txtIdentificacion->Text = "";
-	txtCategoriaPersona->Text = "";
-	txtEdad->Text = "";
-	txtIDPersona->Text = "";
-	txtTelefonoPersona->Text = "";
-	cboGeneroPersona->Text = "";
-	cboTipoPersona->Text = "";
-	////////////////////////////////////
+		if (ID <= 0)
+		{
+			throw gcnew Exception("El ID tiene que ser positivo y mayor a 0.");
+		}
+		else if (ID > 100)
+		{
+			throw gcnew Exception("El ID no puede ser un numero grande.");
+		}
+		//Nombre
+		System::String^ nombre = txtPrimerNombre->Text;
+		int lonNom = txtPrimerNombre->Text->Length;
+		if (nombre == "")
+		{
+			throw gcnew Exception("Ingrese el nombre.");
+		}
+		else if (lonNom < 3)
+		{
+			throw gcnew Exception("El nombre es muy corto.");
+		}
+		//Apellido
+		System::String^ apellido = txtApellidoPaterno->Text;
+		int lonApel = txtApellidoPaterno->Text->Length;
+		if (apellido == "")
+		{
+			throw gcnew Exception("Ingrese el apellido.");
+		}
+		else if (lonApel < 3)
+		{
+			throw gcnew Exception("El apellido es muy corto.");
+		}
+		//Edad
+		if (txtEdad->Text == "")
+		{
+			throw gcnew Exception("Ingrese la edad.");
+		}
+		int edad = Convert::ToInt16(txtEdad->Text);
+		if (edad < 0)
+		{
+			throw gcnew Exception("La edad tiene que ser positiva y mayor que 0.");
+		}
+		else if (edad <= 10)
+		{
+			throw gcnew Exception("Debe tener mas de 10 años para poder registrarse.");
+		}
+		else if (edad > 100)
+		{
+			throw gcnew Exception("Ingrese una edad valida(menor a 100).");
+		}
+		//Genero
+		if (cboGeneroPersona->SelectedItem == nullptr)
+		{
+			throw gcnew Exception("Seleccione el tipo de genero.");
+		}
+		else if ((cboGeneroPersona->SelectedItem->ToString() != "Masculino") && (cboGeneroPersona->SelectedItem->ToString() != "Femenino"))
+		{
+			throw gcnew Exception("Seleccione el genero valido.");
+		}
+		System::String^ genero = cboGeneroPersona->SelectedItem->ToString();
 
+		//Identificacion
+		System::String^ identificacion = txtIdentificacion->Text;
+		int lonIden = txtIdentificacion->Text->Length;
+		if (identificacion == "")
+		{
+			throw gcnew Exception("Ingrese la identificacion.");
+		}
+		else if (lonIden > 13)
+		{
+			throw gcnew Exception("La identificacion es demasiado grande.");
+		}
+		else if (lonIden < 13)
+		{
+			throw gcnew Exception("La identificacion es demasiado corta.");
+
+		}
+		//Telefono
+		if (txtTelefonoPersona->Text=="")
+		{
+			throw gcnew Exception("Ingrese el numero de telefono.");
+		}
+		else if (txtTelefonoPersona->Text->Length < 8)
+		{
+			throw gcnew Exception("El numero de telefono es demasiado corto.");
+		}
+		else if (txtTelefonoPersona->Text->Length > 8)
+		{
+			throw gcnew Exception("El numero de telefono es demasiado grande.");
+		}
+		int telefono = Convert::ToInt32(txtTelefonoPersona->Text);
+		if (telefono < 0)
+		{
+			throw gcnew Exception("El numero de telefono no es valido.");
+		}
+		//Categoria
+		System::String^ categoria = txtCategoriaPersona->Text;
+		if (categoria == "")
+		{
+			throw gcnew Exception("ingrese la categoria.");
+		}
+		//Tipo de persona
+		if (cboTipoPersona->SelectedItem == nullptr)
+		{
+			throw gcnew Exception("Seleccione el tipo de persona.");
+		}
+		else if ((cboTipoPersona->SelectedItem->ToString() == "Cliente") && (cboTipoPersona->SelectedItem->ToString() == "Empleado"))
+		{
+			throw gcnew Exception("El tipo de persona seleccionado no esta en la lista.");
+
+		}
+		System::String^ tipo = cboTipoPersona->Text->ToString();
+
+		//convertir los string
+		std::string nombreP = marshal_as<std::string>(nombre);
+		std::string apellidoP = marshal_as<std::string>(apellido);
+		std::string generoP = marshal_as<std::string>(genero);
+		std::string identificacionP = marshal_as<std::string>(identificacion);
+		std::string categoriaP = marshal_as<std::string>(categoria);
+		std::string tipoP = marshal_as<std::string>(tipo);
+		Persona persona(nombreP, apellidoP, identificacionP, tipoP, generoP, telefono, edad, ID);
+		//Guardar en archivo
+		archivoPersonaSalida.write(reinterpret_cast<const char*>(&persona), sizeof(Persona));
+		archivoPersonaSalida.close();
+		//////////////////
+		txtPrimerNombre->Text = "";
+		txtApellidoPaterno->Text = "";
+		txtCategoriaPersona->Text = "";
+		txtIdentificacion->Text = "";
+		txtCategoriaPersona->Text = "";
+		txtEdad->Text = "";
+		txtIDPersona->Text = "";
+		txtTelefonoPersona->Text = "";
+		cboGeneroPersona->Text = "";
+		cboTipoPersona->Text = "";
+	}
+	catch (Exception^ excep)
+	{
+		MessageBox::Show(excep->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 }
 private: System::Void frmPersona_Load(System::Object^ sender, System::EventArgs^ e) {
-	ofstream archivoPersona("Personas.dat", ios::binary |ios::app| ios::out);
-	if (!archivoPersona)
+	try
 	{
-		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		this->Close();
+		ofstream archivoPersona("Personas.dat", ios::binary | ios::app | ios::out);
+		if (!archivoPersona)
+		{
+			throw gcnew Exception("No se pudo abrir el archivo");
+		}
+
 	}
-	txtPrimerNombre->Text = "";
-	txtApellidoPaterno->Text = "";
-	txtCategoriaPersona->Text = "";
-	txtIdentificacion->Text = "";
-	txtCategoriaPersona->Text = "";
-	txtEdad->Text = "";
-	txtIDPersona->Text = "";
-	txtTelefonoPersona->Text = "";
-	cboGeneroPersona->Text = "";
-	cboTipoPersona->Text = "";
+	catch (Exception^ excep)
+	{
+		MessageBox::Show(excep->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 }
 };
 }

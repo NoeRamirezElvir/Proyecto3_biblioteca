@@ -59,7 +59,7 @@ void Libro::establecerNombreLibro(string _nombreLibro) {
 	int longitud = (int)_nombreLibro.size();
 	if (longitud < 3)
 		cerr << "El nombre del libro es invalido." << endl;
-	longitud = (longitud < 15 ? longitud : 14);
+	longitud = (longitud < 30 ? longitud : 29);
 	_nombreLibro.copy(nombreLibro, longitud);
 	nombreLibro[longitud] = '\0';
 }
@@ -70,7 +70,7 @@ void Libro::establecerNombreAutor(string _nombreAutor) {
 	int longitud = (int)_nombreAutor.size();
 	if (longitud < 3)
 		cerr << "Nombre de autor invalido." << endl;
-	longitud = (longitud < 10 ? longitud : 9);
+	longitud = (longitud < 20 ? longitud : 19);
 	_nombreAutor.copy(nombreAutor, longitud);
 	nombreAutor[longitud] = '\0';
 }
@@ -92,7 +92,7 @@ void Libro::establecerEditorial(string _editorial) {
 	int longitud = (int)_editorial.size();
 	if (longitud < 5)
 		cerr << "La editorial es incorrecta." << endl;
-	longitud = (longitud < 15 ? longitud : 14);
+	longitud = (longitud < 20 ? longitud : 19);
 	_editorial.copy(editorial, longitud);
 	editorial[longitud] = '\0';
 }

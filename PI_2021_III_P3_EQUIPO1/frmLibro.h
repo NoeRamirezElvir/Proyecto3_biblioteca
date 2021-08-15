@@ -72,10 +72,10 @@ namespace PI2021IIIP3EQUIPO1 {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ btnMostrarLibros;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::ComboBox^ cboEstanteLibro;
-	private: System::Windows::Forms::ComboBox^ cboSucursalLibro;
+
+
+
+
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::TextBox^ txtVolumen;
 
@@ -129,10 +129,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnRegistrarLibro = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnMostrarLibros = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->cboEstanteLibro = (gcnew System::Windows::Forms::ComboBox());
-			this->cboSucursalLibro = (gcnew System::Windows::Forms::ComboBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->txtVolumen = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -272,9 +268,9 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			this->cboCategoriaLibro->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->cboCategoriaLibro->FormattingEnabled = true;
-			this->cboCategoriaLibro->Items->AddRange(gcnew cli::array< System::Object^  >(12) {
+			this->cboCategoriaLibro->Items->AddRange(gcnew cli::array< System::Object^  >(13) {
 				L"Autobiografia", L"Autoayuda", L"Ciencia",
-					L"Ciencia ficcion", L"Comic", L"Deporte", L"Humor", L"Romance", L"Salud", L"Ciencias sociales", L"Suspenso", L"Terror"
+					L"Ciencia ficcion", L"Comic", L"Deporte", L"Humor", L"Novela", L"Romance", L"Salud", L"Ciencias sociales", L"Suspenso", L"Terror"
 			});
 			this->cboCategoriaLibro->Location = System::Drawing::Point(453, 225);
 			this->cboCategoriaLibro->Name = L"cboCategoriaLibro";
@@ -291,7 +287,7 @@ namespace PI2021IIIP3EQUIPO1 {
 				static_cast<System::Byte>(0)));
 			this->btnRegistrarLibro->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnRegistrarLibro->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnRegistrarLibro.Image")));
-			this->btnRegistrarLibro->Location = System::Drawing::Point(441, 406);
+			this->btnRegistrarLibro->Location = System::Drawing::Point(441, 368);
 			this->btnRegistrarLibro->Name = L"btnRegistrarLibro";
 			this->btnRegistrarLibro->Size = System::Drawing::Size(112, 53);
 			this->btnRegistrarLibro->TabIndex = 16;
@@ -319,7 +315,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnMostrarLibros->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnMostrarLibros->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMostrarLibros.Image")));
-			this->btnMostrarLibros->Location = System::Drawing::Point(583, 406);
+			this->btnMostrarLibros->Location = System::Drawing::Point(583, 368);
 			this->btnMostrarLibros->Name = L"btnMostrarLibros";
 			this->btnMostrarLibros->Size = System::Drawing::Size(117, 53);
 			this->btnMostrarLibros->TabIndex = 20;
@@ -327,44 +323,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->btnMostrarLibros->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->btnMostrarLibros->UseVisualStyleBackColor = false;
 			this->btnMostrarLibros->Click += gcnew System::EventHandler(this, &frmLibro::btnMostrarLibros_Click);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(397, 290);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(58, 13);
-			this->label1->TabIndex = 21;
-			this->label1->Text = L"Estante: ";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(391, 347);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(64, 13);
-			this->label3->TabIndex = 22;
-			this->label3->Text = L"Sucursal: ";
-			// 
-			// cboEstanteLibro
-			// 
-			this->cboEstanteLibro->FormattingEnabled = true;
-			this->cboEstanteLibro->Location = System::Drawing::Point(453, 287);
-			this->cboEstanteLibro->Name = L"cboEstanteLibro";
-			this->cboEstanteLibro->Size = System::Drawing::Size(121, 21);
-			this->cboEstanteLibro->TabIndex = 23;
-			// 
-			// cboSucursalLibro
-			// 
-			this->cboSucursalLibro->FormattingEnabled = true;
-			this->cboSucursalLibro->Location = System::Drawing::Point(453, 344);
-			this->cboSucursalLibro->Name = L"cboSucursalLibro";
-			this->cboSucursalLibro->Size = System::Drawing::Size(121, 21);
-			this->cboSucursalLibro->TabIndex = 24;
 			// 
 			// label4
 			// 
@@ -392,10 +350,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->ClientSize = System::Drawing::Size(849, 537);
 			this->Controls->Add(this->txtVolumen);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->cboSucursalLibro);
-			this->Controls->Add(this->cboEstanteLibro);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnMostrarLibros);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnRegistrarLibro);
@@ -427,41 +381,55 @@ namespace PI2021IIIP3EQUIPO1 {
 		}
 #pragma endregion
 private: System::Void btnMostrarLibros_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmListaLibros^ listaLibros = gcnew frmListaLibros;
-	listaLibros->Show();
-	ifstream archivoLibrosEntrada("Libros.dat", ios::binary | ios::app | ios::in);
-	if (!archivoLibrosEntrada)
+	try
 	{
-		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		this->Close();
-	}
-	Libro leerLibro;
-	archivoLibrosEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
-	while (!archivoLibrosEntrada.eof())
-	{
-		System::String^ nombreL = marshal_as<System::String^>(leerLibro.obtenerNombreLibro());
-		System::String^ nombreA = marshal_as<System::String^>(leerLibro.obtenerNombreAutor());
-		System::String^ editorial = marshal_as<System::String^>(leerLibro.obtenerEditorial());
-		System::String^ categoria = marshal_as<System::String^>(leerLibro.obtenerCategoria());
-		std::string id = to_string(leerLibro.obtenerIDlibro());
-		std::string vol = to_string(leerLibro.obtenerNumeroVolumen());
-		std::string año1 = to_string(leerLibro.obtenerAñoEdicion());
-		std::string val = to_string(leerLibro.obtenerPrecio());
-		System::String^ IdL = marshal_as<System::String^>(id);
-		System::String^ volumen = marshal_as<System::String^>(vol);
-		System::String^ año = marshal_as<System::String^>(año1);
-		System::String^ valor = marshal_as<System::String^>(val);
-		listaLibros->dgvLibros->Rows->Add(IdL, nombreL, categoria, año, volumen, nombreA, editorial);
+		frmListaLibros^ listaLibros = gcnew frmListaLibros;
+		listaLibros->Show();
+		ifstream archivoLibrosEntrada("Libros.dat", ios::binary | ios::app | ios::in);
+		if (!archivoLibrosEntrada)
+		{
+			throw gcnew Exception("No se pudo abrir el archivo");
+		}
+		Libro leerLibro;
 		archivoLibrosEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
+		while (!archivoLibrosEntrada.eof())
+		{
+			System::String^ nombreL = marshal_as<System::String^>(leerLibro.obtenerNombreLibro());
+			System::String^ nombreA = marshal_as<System::String^>(leerLibro.obtenerNombreAutor());
+			System::String^ editorial = marshal_as<System::String^>(leerLibro.obtenerEditorial());
+			System::String^ categoria = marshal_as<System::String^>(leerLibro.obtenerCategoria());
+			std::string id = to_string(leerLibro.obtenerIDlibro());
+			std::string vol = to_string(leerLibro.obtenerNumeroVolumen());
+			std::string año1 = to_string(leerLibro.obtenerAñoEdicion());
+			std::string val = to_string(leerLibro.obtenerPrecio());
+			System::String^ IdL = marshal_as<System::String^>(id);
+			System::String^ volumen = marshal_as<System::String^>(vol);
+			System::String^ año = marshal_as<System::String^>(año1);
+			System::String^ valor = marshal_as<System::String^>(val);
+			listaLibros->dgvLibros->Rows->Add(IdL, nombreL, categoria, año, volumen, nombreA, editorial);
+			archivoLibrosEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
+		}
+
+	}
+	catch (Exception^ excep)
+	{
+		MessageBox::Show(excep->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 
 }
 private: System::Void frmLibro_Load(System::Object^ sender, System::EventArgs^ e) {
-	ofstream archivoLibros("Libros.dat", ios::binary | ios::app | ios::out);
-	if (!archivoLibros)
+	try
 	{
-		MessageBox::Show("No se pudo crear el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		this->Close();
+		ofstream archivoLibros("Libros.dat", ios::binary | ios::app | ios::out);
+		if (!archivoLibros)
+		{
+			throw gcnew Exception("No se pudo abrir el archivo");
+		}
+
+	}
+	catch (Exception^ excep)
+	{
+		MessageBox::Show(excep->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 	txtAñoEdicionLibro->Text = "";
 	txtCostoLibro->Text = "";
@@ -470,47 +438,154 @@ private: System::Void frmLibro_Load(System::Object^ sender, System::EventArgs^ e
 	txtEditorialLibro->Text = "";
 	txtIDlibro->Text = "";
 	cboCategoriaLibro->Text = "";
-	cboEstanteLibro->Text = "";
-	cboSucursalLibro->Text = "";
 }
 private: System::Void btnRegistrarLibro_Click(System::Object^ sender, System::EventArgs^ e) {
-	ofstream archivoLibroSalida("Libros.dat", ios::binary | ios::app | ios::out);
-	if (!archivoLibroSalida)
+	try
 	{
-		MessageBox::Show("No se pudo abrir el archivo", "Error en el sistema", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		this->Close();
-	}
-	System::String^ nomL = txtNombreLibro->Text;
-	System::String^ nomA = txtNombreAutorLibro->Text;
-	System::String^ edit = txtEditorialLibro->Text;
-	System::String^ cat = cboCategoriaLibro->SelectedItem->ToString();
-	//System::String^ est = cboEstanteLibro->SelectedItem->ToString();
-	//System::String^ suc = cboSucursalLibro->SelectedItem->ToString();
-	int IdLibro = Convert::ToInt32(txtIDlibro->Text);
-	int volumen = Convert::ToInt32(txtVolumen->Text);
-	int año = Convert::ToInt32(txtAñoEdicionLibro->Text);
-	double valor = Convert::ToDouble(txtCostoLibro->Text);
-	std::string nombreLibro = marshal_as<std::string>(nomL);
-	std::string nombreAutor = marshal_as<std::string>(nomA);
-	std::string editorial = marshal_as<std::string>(edit);
-	std::string categoria = marshal_as<std::string>(cat);
-	//std::string estante = marshal_as<std::string>(est);
-	//std::string sucursal = marshal_as<std::string>(suc);
+		ofstream archivoLibroSalida("Libros.dat", ios::binary | ios::app | ios::out);
+		if (!archivoLibroSalida)
+		{
+			this->Close();
+			throw gcnew Exception("No se pudo abrir el archivo.");
+		}
+		ifstream archivoLibroEntrada("Libros.dat", ios::binary | ios::app | ios::in);
+		if (!archivoLibroEntrada)
+		{
+			this->Close();
+			throw gcnew Exception("No se pudo abrir el archivo.");
+		}
+		//ID
+		if (txtIDlibro->Text == "")
+		{
+			throw gcnew Exception("Ingrese el ID.");
+		}
+		int IdLibro = Convert::ToInt32(txtIDlibro->Text);
 
-	Libro libro(IdLibro, año, volumen, valor, nombreLibro, nombreAutor, editorial, categoria);
-	archivoLibroSalida.write(reinterpret_cast<char*>(&libro), sizeof(Libro));
-	archivoLibroSalida.close();
-	//////
-	txtAñoEdicionLibro->Text = "";
-	txtCostoLibro->Text = "";
-	txtEditorialLibro->Text = "";
-	txtIDlibro->Text = "";
-	txtNombreAutorLibro->Text = "";
-	txtNombreLibro->Text = "";
-	txtVolumen->Text = "";
-	cboCategoriaLibro->Text = "";
-	cboEstanteLibro->Text = "";
-	cboSucursalLibro->Text = "";
+		Libro leerLibro;
+		archivoLibroEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
+		while (!archivoLibroEntrada.eof())
+		{
+			int id = leerLibro.obtenerIDlibro();
+			if (IdLibro != id)
+			{
+				archivoLibroEntrada.read(reinterpret_cast<char*>(&leerLibro), sizeof(Libro));
+			}
+			else
+			{
+				throw gcnew Exception("El ID ya esta en uso.");
+			}
+
+		}
+		if (IdLibro <= 0)
+		{
+			throw gcnew Exception("El ID tiene que ser positivo y mayor que 0.");
+		}
+		else if (IdLibro > 100)
+		{
+			throw gcnew Exception("El ID es demasiado grande.");
+		}
+		//archivoLibroEntrada.close();
+		//Nombre
+		if (txtNombreLibro->Text == "")
+		{
+			throw gcnew Exception("Ingrese el nombre del libro.");
+		}
+		else if (txtNombreLibro->Text->Length < 3)
+		{
+			throw gcnew Exception("El nombre del libro es demasiado corto.");
+		}
+		System::String^ nomL = txtNombreLibro->Text;
+		//Nombre Autor
+		if (txtNombreAutorLibro->Text == "")
+		{
+			throw gcnew Exception("Ingrese el nombre del autor.");
+		}
+		else if (txtNombreAutorLibro->Text->Length < 3)
+		{
+			throw gcnew Exception("El nombre del autor es demasiado corto.");
+		}
+		System::String^ nomA = txtNombreAutorLibro->Text;
+		//Editorial
+		if (txtEditorialLibro->Text == "")
+		{
+			throw gcnew Exception("Ingrese la editorial.");
+		}
+		else if (txtEditorialLibro->Text->Length < 4)
+		{
+			throw gcnew Exception("La nombre de la editorial es demasiado corto.");
+		}
+		System::String^ edit = txtEditorialLibro->Text;
+		//Costo
+		if (txtCostoLibro->Text == "")
+		{
+			throw gcnew Exception("Ingrese costo del libro.");
+		}
+		double valor = Convert::ToDouble(txtCostoLibro->Text);
+		if (valor <= 0)
+		{
+			throw gcnew Exception("El costo del libro tiene que ser positivo y mayor que 0.");
+		}
+		//Volumen
+		if (txtVolumen->Text == "")
+		{
+			throw gcnew Exception("Ingrese el numero de volumen.");
+		}
+		int volumen = Convert::ToInt32(txtVolumen->Text);
+		if (volumen <= 0)
+		{
+			throw gcnew Exception("El volumen debe ser positivo y mayor que 0.");
+		}
+		else if (volumen > 100)
+		{
+			throw gcnew Exception("El numero de volumen es demasiado grande.");
+		}
+		//Año de edicion
+		if (txtAñoEdicionLibro->Text == "")
+		{
+			throw gcnew Exception("Ingrese el año de edicion.");
+		}
+		int año = Convert::ToInt32(txtAñoEdicionLibro->Text);
+		if (año > 2021)
+		{
+			throw gcnew Exception("Año de edicion invalido.");
+		}
+		else if (año <= 0)
+		{
+			throw gcnew Exception("El año de edicion tiene que ser positivo y mayor que 0.");
+		}
+		//Categoria
+		if (cboCategoriaLibro->SelectedItem == nullptr)
+		{
+			throw gcnew Exception("Seleccione la categoria del libro.");
+		}
+		System::String^ cat = cboCategoriaLibro->SelectedItem->ToString();
+
+
+		////////////////////////
+		std::string nombreLibro = marshal_as<std::string>(nomL);
+		std::string nombreAutor = marshal_as<std::string>(nomA);
+		std::string editorial = marshal_as<std::string>(edit);
+		std::string categoria = marshal_as<std::string>(cat);
+
+
+		Libro libro(IdLibro, año, volumen, valor, nombreLibro, nombreAutor, editorial, categoria);
+		archivoLibroSalida.write(reinterpret_cast<char*>(&libro), sizeof(Libro));
+		archivoLibroSalida.close();
+		///////////////////////////
+		txtAñoEdicionLibro->Text = "";
+		txtCostoLibro->Text = "";
+		txtEditorialLibro->Text = "";
+		txtIDlibro->Text = "";
+		txtNombreAutorLibro->Text = "";
+		txtNombreLibro->Text = "";
+		txtVolumen->Text = "";
+		cboCategoriaLibro->Text = "";
+
+	}
+	catch (Exception^ excep)
+	{
+		MessageBox::Show(excep->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 }
 };
 }
