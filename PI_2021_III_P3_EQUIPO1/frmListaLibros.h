@@ -63,6 +63,13 @@ namespace PI2021IIIP3EQUIPO1 {
 
 
 
+
+
+
+
+
+
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -141,9 +148,9 @@ namespace PI2021IIIP3EQUIPO1 {
 			// colCategoriaLibro
 			// 
 			this->colCategoriaLibro->HeaderText = L"Categoria";
-			this->colCategoriaLibro->Items->AddRange(gcnew cli::array< System::Object^  >(12) {
+			this->colCategoriaLibro->Items->AddRange(gcnew cli::array< System::Object^  >(13) {
 				L"Autobiografia", L"Autoayuda", L"Ciencia",
-					L"Ciencia ficcion", L"Comic", L"Deporte", L"Humor", L"Romance", L"Salud", L"Ciencias sociales", L"Suspenso", L"Terror"
+					L"Ciencia ficcion", L"Comic", L"Deporte", L"Humor", L"Novela", L"Romance", L"Salud", L"Ciencias sociales", L"Suspenso", L"Terror"
 			});
 			this->colCategoriaLibro->Name = L"colCategoriaLibro";
 			// 

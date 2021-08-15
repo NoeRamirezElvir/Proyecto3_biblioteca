@@ -1,1 +1,7 @@
-﻿  PI_2021_III_P3_EQUIPO1.vcxproj -> C:\Users\Usuario\Source\Repos\Proyecto_Biblioteca\x64\Debug\PI_2021_III_P3_EQUIPO1.exe
+﻿  frmInicio.cpp
+C:\Users\elvir\Desktop\Biblioteca-rama-paola\Nueva carpeta\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmInicio.cpp(5,33): warning C4829: Parámetros posiblemente incorrectos para la función main. Utilice 'int main(Platform::Array<Platform::String^>^ argv)'
+  frmLibro.cpp
+  frmListaLibros.cpp
+  Generando código...
+  Cliente.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  PI_2021_III_P3_EQUIPO1.vcxproj -> C:\Users\elvir\Desktop\Biblioteca-rama-paola\Nueva carpeta\Proyecto_Biblioteca\x64\Debug\PI_2021_III_P3_EQUIPO1.exe

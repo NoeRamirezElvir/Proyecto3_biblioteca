@@ -33,9 +33,9 @@ private:
 	int añoEdicion;
 	int numeroVolumenes;
 	double precio;
-	char nombreLibro[15];
-	char nombreAutor[10];
-	char editorial[15];
+	char nombreLibro[30];
+	char nombreAutor[20];
+	char editorial[20];
 	char categoria[20];
 	//Sucursal sucursal;
 	//Estante estante;
