@@ -7,11 +7,11 @@
 #include "Daño.h"
 #include "Prestamo.h"
 
-class Factura : public Prestamo, Daño  
+class Factura : public Prestamo, Daño
 {
 public:
 	Factura();
-	Factura(int, int, std::string, std::string, std::string, std::string);
+	Factura(int, int, std::string, std::string, std::string, std::string, std::string);
 
 	void establecerFacturaID(int);
 	int obtenerFacturaID() const;
@@ -28,23 +28,27 @@ public:
 	void establecerEmpleadoApellido(std::string);
 	std::string obtenerEmpleadoApellido() const;
 	void establecerPrestamo(std::string);
-	std::string obtenerPrestamo() const; 
+	std::string obtenerPrestamo() const;
+	void establecerDaño(std::string);
+	std::string obtenerDaño() const;
 
-	double calcularTotal(); 
+	void calcularTotal(double, double, int);
+	double obtenerTotal() const;
 	void imprimir();
 	void registrar();
-	
+
 private:
 	int facturaID;
 	int Año;
 	char Mes[12];
 	int Dias;
 	char Hora[8];
-	/*Empleado empleado; 
+	/*Empleado empleado;
 	Prestamo prestamo;*/
 	char empleadoNombre[10];
 	char empleadoApellido[10];
 	char prestamo_[30];
+	char damage[30];
 	double totalPagar;
 };
 
