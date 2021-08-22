@@ -1,7 +1,20 @@
-﻿  frmInicio.cpp
-C:\Users\elvir\Desktop\Biblioteca-rama-paola\Nueva carpeta\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmInicio.cpp(5,33): warning C4829: Parámetros posiblemente incorrectos para la función main. Utilice 'int main(Platform::Array<Platform::String^>^ argv)'
-  frmLibro.cpp
-  frmListaLibros.cpp
+﻿  Factura.cpp
+  Prestamo.cpp
+  frmFactura.cpp
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmFactura.h(579,45): error C2039: "obtener_TipoDaño": no es un miembro de "Prestamo"
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\Prestamo.h(8): message : vea la declaración de 'Prestamo'
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmFactura.h(590,41): error C2039: "obtenerCostoDaño": no es un miembro de "Prestamo"
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\Prestamo.h(8): message : vea la declaración de 'Prestamo'
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmFactura.h(691,42): error C2039: "obtener_TipoDaño": no es un miembro de "Prestamo"
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\Prestamo.h(8): message : vea la declaración de 'Prestamo'
+  frmInicio.cpp
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmFactura.h(579,45): error C2039: "obtener_TipoDaño": no es un miembro de "Prestamo"
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\Prestamo.h(8): message : vea la declaración de 'Prestamo'
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmFactura.h(590,41): error C2039: "obtenerCostoDaño": no es un miembro de "Prestamo"
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\Prestamo.h(8): message : vea la declaración de 'Prestamo'
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmFactura.h(691,42): error C2039: "obtener_TipoDaño": no es un miembro de "Prestamo"
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\Prestamo.h(8): message : vea la declaración de 'Prestamo'
+C:\Users\elvir\Desktop\ProyectoFinal\Proyecto_Biblioteca\PI_2021_III_P3_EQUIPO1\frmInicio.cpp(5,33): warning C4829: Parámetros posiblemente incorrectos para la función main. Utilice 'int main(Platform::Array<Platform::String^>^ argv)'
+  frmListaPrestamo.cpp
+  frmPrestamo.cpp
   Generando código...
-  Cliente.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  PI_2021_III_P3_EQUIPO1.vcxproj -> C:\Users\elvir\Desktop\Biblioteca-rama-paola\Nueva carpeta\Proyecto_Biblioteca\x64\Debug\PI_2021_III_P3_EQUIPO1.exe

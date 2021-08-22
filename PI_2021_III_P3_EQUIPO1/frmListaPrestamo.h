@@ -52,8 +52,14 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colApellido;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colTipoPrestamo;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colDias;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colDaño;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colLibro;
+
+
+
+
+
+
+
 
 
 
@@ -100,7 +106,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->colApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colTipoPrestamo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colDias = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->colDaño = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colLibro = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPrestamo))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -110,30 +115,30 @@ namespace PI2021IIIP3EQUIPO1 {
 			// 
 			this->dgvPrestamo->BackgroundColor = System::Drawing::Color::LightCyan;
 			this->dgvPrestamo->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvPrestamo->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+			this->dgvPrestamo->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->colID, this->colNombre,
-					this->colApellido, this->colTipoPrestamo, this->colDias, this->colDaño, this->colLibro
+					this->colApellido, this->colTipoPrestamo, this->colDias, this->colLibro
 			});
-			this->dgvPrestamo->Location = System::Drawing::Point(12, 152);
+			this->dgvPrestamo->Location = System::Drawing::Point(62, 152);
 			this->dgvPrestamo->Name = L"dgvPrestamo";
-			this->dgvPrestamo->Size = System::Drawing::Size(852, 375);
+			this->dgvPrestamo->Size = System::Drawing::Size(644, 375);
 			this->dgvPrestamo->TabIndex = 0;
 			// 
 			// lblTitulo
 			// 
 			this->lblTitulo->AutoSize = true;
-			this->lblTitulo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lblTitulo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTitulo->Location = System::Drawing::Point(186, 71);
+			this->lblTitulo->Location = System::Drawing::Point(55, 65);
 			this->lblTitulo->Name = L"lblTitulo";
-			this->lblTitulo->Size = System::Drawing::Size(347, 25);
+			this->lblTitulo->Size = System::Drawing::Size(500, 37);
 			this->lblTitulo->TabIndex = 1;
 			this->lblTitulo->Text = L"Lista de Prestamos Registrados";
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(564, 12);
+			this->pictureBox1->Location = System::Drawing::Point(561, 12);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(165, 134);
 			this->pictureBox1->TabIndex = 2;
@@ -168,13 +173,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->colDias->HeaderText = L"Dias de Alquiler";
 			this->colDias->Name = L"colDias";
 			// 
-			// colDaño
-			// 
-			this->colDaño->HeaderText = L"ID Daño al libro";
-			this->colDaño->Name = L"colDaño";
-			this->colDaño->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			this->colDaño->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
-			// 
 			// colLibro
 			// 
 			this->colLibro->HeaderText = L"Nombre del Libro";
@@ -187,7 +185,7 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkCyan;
-			this->ClientSize = System::Drawing::Size(893, 539);
+			this->ClientSize = System::Drawing::Size(748, 539);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->lblTitulo);
 			this->Controls->Add(this->dgvPrestamo);

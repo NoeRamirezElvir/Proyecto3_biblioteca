@@ -52,7 +52,7 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ lblTipoPrestamo;
 	private: System::Windows::Forms::Label^ lblDias;
 	private: System::Windows::Forms::Label^ lblCosto;
-	private: System::Windows::Forms::Label^ lblDaño;
+
 	private: System::Windows::Forms::Label^ lblLibro;
 
 	private: System::Windows::Forms::TextBox^ txtDias;
@@ -71,7 +71,7 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ lblNombre;
 	private: System::Windows::Forms::Label^ lblApellido;
 
-	private: System::Windows::Forms::ComboBox^ cboDaño;
+
 	private: System::Windows::Forms::ComboBox^ cboLibro;
 	private: System::Windows::Forms::Button^ btnAgregar;
 
@@ -79,7 +79,7 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::TextBox^ txtTipoPrestamo;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::PictureBox^ pictureBox6;
@@ -115,7 +115,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblTipoPrestamo = (gcnew System::Windows::Forms::Label());
 			this->lblDias = (gcnew System::Windows::Forms::Label());
 			this->lblCosto = (gcnew System::Windows::Forms::Label());
-			this->lblDaño = (gcnew System::Windows::Forms::Label());
 			this->lblLibro = (gcnew System::Windows::Forms::Label());
 			this->txtDias = (gcnew System::Windows::Forms::TextBox());
 			this->txtCosto = (gcnew System::Windows::Forms::TextBox());
@@ -123,21 +122,18 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblACliente = (gcnew System::Windows::Forms::Label());
 			this->lblNombre = (gcnew System::Windows::Forms::Label());
 			this->lblApellido = (gcnew System::Windows::Forms::Label());
-			this->cboDaño = (gcnew System::Windows::Forms::ComboBox());
 			this->cboLibro = (gcnew System::Windows::Forms::ComboBox());
 			this->btnAgregar = (gcnew System::Windows::Forms::Button());
 			this->btnMostrar = (gcnew System::Windows::Forms::Button());
 			this->txtTipoPrestamo = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
@@ -200,19 +196,10 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblCosto->TabIndex = 5;
 			this->lblCosto->Text = L"Costo por día:";
 			// 
-			// lblDaño
-			// 
-			this->lblDaño->AutoSize = true;
-			this->lblDaño->Location = System::Drawing::Point(188, 304);
-			this->lblDaño->Name = L"lblDaño";
-			this->lblDaño->Size = System::Drawing::Size(83, 13);
-			this->lblDaño->TabIndex = 6;
-			this->lblDaño->Text = L"ID Daño al libro:";
-			// 
 			// lblLibro
 			// 
 			this->lblLibro->AutoSize = true;
-			this->lblLibro->Location = System::Drawing::Point(185, 344);
+			this->lblLibro->Location = System::Drawing::Point(187, 311);
 			this->lblLibro->Name = L"lblLibro";
 			this->lblLibro->Size = System::Drawing::Size(86, 13);
 			this->lblLibro->TabIndex = 7;
@@ -266,18 +253,10 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblApellido->Size = System::Drawing::Size(0, 13);
 			this->lblApellido->TabIndex = 26;
 			// 
-			// cboDaño
-			// 
-			this->cboDaño->FormattingEnabled = true;
-			this->cboDaño->Location = System::Drawing::Point(295, 296);
-			this->cboDaño->Name = L"cboDaño";
-			this->cboDaño->Size = System::Drawing::Size(100, 21);
-			this->cboDaño->TabIndex = 28;
-			// 
 			// cboLibro
 			// 
 			this->cboLibro->FormattingEnabled = true;
-			this->cboLibro->Location = System::Drawing::Point(293, 336);
+			this->cboLibro->Location = System::Drawing::Point(295, 303);
 			this->cboLibro->Name = L"cboLibro";
 			this->cboLibro->Size = System::Drawing::Size(102, 21);
 			this->cboLibro->TabIndex = 29;
@@ -333,20 +312,11 @@ namespace PI2021IIIP3EQUIPO1 {
 			// pictureBox2
 			// 
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(123, 336);
+			this->pictureBox2->Location = System::Drawing::Point(125, 303);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(33, 29);
 			this->pictureBox2->TabIndex = 34;
 			this->pictureBox2->TabStop = false;
-			// 
-			// pictureBox3
-			// 
-			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(123, 296);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(33, 29);
-			this->pictureBox3->TabIndex = 35;
-			this->pictureBox3->TabStop = false;
 			// 
 			// pictureBox4
 			// 
@@ -394,14 +364,12 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Controls->Add(this->pictureBox6);
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->pictureBox4);
-			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->txtTipoPrestamo);
 			this->Controls->Add(this->btnMostrar);
 			this->Controls->Add(this->btnAgregar);
 			this->Controls->Add(this->cboLibro);
-			this->Controls->Add(this->cboDaño);
 			this->Controls->Add(this->lblApellido);
 			this->Controls->Add(this->lblNombre);
 			this->Controls->Add(this->lblACliente);
@@ -409,7 +377,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Controls->Add(this->txtCosto);
 			this->Controls->Add(this->txtDias);
 			this->Controls->Add(this->lblLibro);
-			this->Controls->Add(this->lblDaño);
 			this->Controls->Add(this->lblCosto);
 			this->Controls->Add(this->lblDias);
 			this->Controls->Add(this->lblTipoPrestamo);
@@ -423,7 +390,6 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->Load += gcnew System::EventHandler(this, &frmPrestamo::frmPrestamo_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
@@ -462,23 +428,6 @@ namespace PI2021IIIP3EQUIPO1 {
 				archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente),
 					sizeof(Cliente));
 			}
-
-			ifstream archivoDañosEntrada("Daños.dat", ios::binary | ios::app | ios::in);
-			if (!archivoDañosEntrada)
-			{
-				this->Close();
-				throw gcnew Exception("No se pudo abrir el archivo");
-			}
-			Daño leerDaños;
-			archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaños), sizeof(Daño));
-			while (!archivoDañosEntrada.eof())
-			{
-				std::string DañoID = to_string(leerDaños.obtenerDañoID());
-				System::String^ ID = marshal_as<System::String^>(DañoID);
-				cboDaño->Items->Add(ID);
-				archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaños), sizeof(Daño));
-			}
-
 			ifstream archivoLibrosEntrada("Libros.dat", ios::binary | ios::app | ios::in);
 			if (!archivoLibrosEntrada)
 			{
@@ -498,10 +447,8 @@ namespace PI2021IIIP3EQUIPO1 {
 			txtTipoPrestamo->Text = "";
 			txtDias->Text = "";
 			txtCosto->Text = "";
-			cboDaño->Text = "";
 			cboLibro->Text = "";
 
-			archivoDañosEntrada.close();
 			archivoLibrosEntrada.close();
 			archivoClienteEntrada.close();
 		}
@@ -594,21 +541,11 @@ namespace PI2021IIIP3EQUIPO1 {
 				this->Close();
 				throw gcnew Exception("No se pudo abrir el archivo");
 			}
-			ifstream archivoDañosEntrada("Daños.dat", ios::binary | ios::app | ios::in);
-			if (!archivoDañosEntrada)
-			{
-				this->Close();
-				throw gcnew Exception("No se pudo abrir el archivo");
-			}
-
-			//System::String^ IDpersona = cboID->SelectedItem->ToString();
 
 			Cliente leerCliente;
 			archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente), sizeof(Cliente));
-			Daño leerDaños;
-			archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaños), sizeof(Daño));
 
-			while (!archivoClienteEntrada.eof()) 
+			while (!archivoClienteEntrada.eof())
 			{
 				std::string id = to_string(leerCliente.obtenerID());
 				System::String^ id1 = marshal_as<System::String^>(id);
@@ -618,86 +555,57 @@ namespace PI2021IIIP3EQUIPO1 {
 					throw gcnew Exception("Seleccione un ID valido.");
 				}
 
-				if (id1 == cboID->Text) 
-				{ 
-					while (!archivoDañosEntrada.eof()) 
-					{
+				std::string nombre = leerCliente.obtenerPrimerNombre();
+				std::string apellido = leerCliente.obtenerApellidoPaterno();
 
-						std::string _id2 = to_string(leerDaños.obtenerDañoID());
-						System::String^ ID2 = marshal_as<System::String^>(_id2);
-
-						if (cboDaño->SelectedItem == nullptr)
-						{
-							throw gcnew Exception("Seleccione un ID valido."); 
-						}
-
-						if (ID2 == cboDaño->Text)
-						{
-							std::string nombre = leerCliente.obtenerPrimerNombre();
-							std::string apellido = leerCliente.obtenerApellidoPaterno();
-
-							if (txtTipoPrestamo->Text == "")
-							{
-								throw gcnew Exception("Ingrese el tipo de prestamo.");
-							}
-							System::String^ prestamo_ = txtTipoPrestamo->Text;
-							if (prestamo_->Length < 5)
-							{
-								throw gcnew Exception("El tipo de prestamo es demasiado corto.");
-							}
-							if (txtDias->Text == "")
-							{
-								throw gcnew Exception("Ingrese el numero de dias de alquiler.");
-							}
-							int dias = Convert::ToInt32(txtDias->Text);
-							if (dias < 0)
-							{
-								throw gcnew Exception("El numero de dias de alquiler debe ser >= 0.");
-							}
-							if (txtCosto->Text == "")
-							{
-								throw gcnew Exception("Ingrese el costo por dia de alquiler.");
-							}
-							double costo = Convert::ToDouble(txtCosto->Text);
-							if (costo < 0)
-							{
-								throw gcnew Exception("El costo debe ser >= 0.");
-							}
-							if (cboLibro->SelectedItem == nullptr)
-							{
-								throw gcnew Exception("Debe seleccionar un libro.");
-							}
-							int IDcliente1 = Convert::ToInt32(cboID->SelectedItem->ToString());
-							std::string _prestamo = marshal_as<std::string>(prestamo_);
-							int id2_ = Convert::ToInt32(cboDaño->SelectedItem->ToString());
-							System::String^ libro = cboLibro->SelectedItem->ToString();
-							std::string Libro = marshal_as<std::string>(libro);
-
-							std::string costo1 = to_string(leerDaños.obtenerCostoDaño());
-							System::String^ Costo1 = marshal_as<System::String^>(costo1);
-							double costo2 = Convert::ToDouble(Costo1);
-							std::string tipo = leerDaños.obtenerTipoDaño();
-							System::String^ Tipo = marshal_as<System::String^>(tipo);
-
-							Prestamo prestamo(IDcliente1, nombre, apellido, _prestamo, dias, costo, costo2, id2_, tipo, Libro);
-							archivoPrestamoSalida.write(reinterpret_cast<char*>(&prestamo), sizeof(Prestamo));
-							archivoPrestamoSalida.close();
-
-							cboID->Text = "";
-							txtTipoPrestamo->Text = "";
-							txtDias->Text = "";
-							txtCosto->Text = "";
-							cboDaño->Text = "";
-							cboLibro->Text = "";
-						}
-
-						archivoDañosEntrada.read(reinterpret_cast<char*>(&leerDaños), sizeof(Daño));
-					}
-
+				if (txtTipoPrestamo->Text == "")
+				{
+					throw gcnew Exception("Ingrese el tipo de prestamo.");
 				}
+				System::String^ prestamo_ = txtTipoPrestamo->Text;
+				if (prestamo_->Length < 5)
+				{
+					throw gcnew Exception("El tipo de prestamo es demasiado corto.");
+				}
+				if (txtDias->Text == "")
+				{
+					throw gcnew Exception("Ingrese el numero de dias de alquiler.");
+				}
+				int dias = Convert::ToInt32(txtDias->Text);
+				if (dias < 0)
+				{
+					throw gcnew Exception("El numero de dias de alquiler debe ser >= 0.");
+				}
+				if (txtCosto->Text == "")
+				{
+					throw gcnew Exception("Ingrese el costo por dia de alquiler.");
+				}
+				double costo = Convert::ToDouble(txtCosto->Text);
+				if (costo < 0)
+				{
+					throw gcnew Exception("El costo debe ser >= 0.");
+				}
+				if (cboLibro->SelectedItem == nullptr)
+				{
+					throw gcnew Exception("Debe seleccionar un libro.");
+				}
+				int IDcliente1 = Convert::ToInt32(cboID->SelectedItem->ToString());
+				std::string _prestamo = marshal_as<std::string>(prestamo_);
+				System::String^ libro = cboLibro->SelectedItem->ToString();
+				std::string Libro = marshal_as<std::string>(libro);
 
-				archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente), sizeof(Cliente));
+				Prestamo prestamo(IDcliente1, Libro, _prestamo, dias, costo, nombre, apellido);
+				archivoPrestamoSalida.write(reinterpret_cast<char*>(&prestamo), sizeof(Prestamo));
+				archivoPrestamoSalida.close();
+				cboID->Text = "";
+				txtTipoPrestamo->Text = "";
+				txtDias->Text = "";
+				txtCosto->Text = "";
+				cboLibro->Text = "";
 			}
+				archivoClienteEntrada.read(reinterpret_cast<char*>(&leerCliente), sizeof(Cliente));
+
+
 		}
 		catch (Exception^ excep)
 		{
@@ -735,12 +643,9 @@ namespace PI2021IIIP3EQUIPO1 {
 				std::string costo = to_string(leerPrestamo.obtenerCostoDia());
 				System::String^ dias_ = marshal_as<System::String^>(dias);
 				System::String^ costo_ = marshal_as<System::String^>(costo);
-
-				std::string _daño = to_string(leerPrestamo.obtener_Daño());
-				System::String^ daño = marshal_as<System::String^>(_daño);
 				System::String^ libro = marshal_as<System::String^>(leerPrestamo.obtener_Libro());
 
-				listaPrestamo->dgvPrestamo->Rows->Add(ID, nombre, apellido, tipo, dias_, daño, libro);
+				listaPrestamo->dgvPrestamo->Rows->Add(ID, nombre, apellido, tipo, dias_, libro);
 				archivoPrestamoEntrada.read(reinterpret_cast<char*>(&leerPrestamo),
 					sizeof(Prestamo));
 			}

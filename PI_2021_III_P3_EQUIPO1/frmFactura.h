@@ -83,6 +83,8 @@ namespace PI2021IIIP3EQUIPO1 {
 	private: System::Windows::Forms::Label^ lblTipoDaño;
 	private: System::Windows::Forms::Label^ lblClienteApellido;
 	private: System::Windows::Forms::ComboBox^ cboEmpleado;
+	private: System::Windows::Forms::ComboBox^ cboDaño;
+	private: System::Windows::Forms::CheckBox^ chbDevolucion;
 
 	private:
 		/// <summary>
@@ -124,6 +126,8 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->lblTipoDaño = (gcnew System::Windows::Forms::Label());
 			this->lblClienteApellido = (gcnew System::Windows::Forms::Label());
 			this->cboEmpleado = (gcnew System::Windows::Forms::ComboBox());
+			this->cboDaño = (gcnew System::Windows::Forms::ComboBox());
+			this->chbDevolucion = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// lblTitulo
@@ -367,12 +371,32 @@ namespace PI2021IIIP3EQUIPO1 {
 			this->cboEmpleado->Size = System::Drawing::Size(121, 21);
 			this->cboEmpleado->TabIndex = 28;
 			// 
+			// cboDaño
+			// 
+			this->cboDaño->FormattingEnabled = true;
+			this->cboDaño->Location = System::Drawing::Point(158, 417);
+			this->cboDaño->Name = L"cboDaño";
+			this->cboDaño->Size = System::Drawing::Size(121, 21);
+			this->cboDaño->TabIndex = 29;
+			// 
+			// chbDevolucion
+			// 
+			this->chbDevolucion->AutoSize = true;
+			this->chbDevolucion->Location = System::Drawing::Point(272, 385);
+			this->chbDevolucion->Name = L"chbDevolucion";
+			this->chbDevolucion->Size = System::Drawing::Size(119, 17);
+			this->chbDevolucion->TabIndex = 30;
+			this->chbDevolucion->Text = L"Devolucion del libro";
+			this->chbDevolucion->UseVisualStyleBackColor = true;
+			// 
 			// frmFactura
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::DarkCyan;
 			this->ClientSize = System::Drawing::Size(602, 593);
+			this->Controls->Add(this->chbDevolucion);
+			this->Controls->Add(this->cboDaño);
 			this->Controls->Add(this->cboEmpleado);
 			this->Controls->Add(this->lblTipoDaño);
 			this->Controls->Add(this->lblDaño);
